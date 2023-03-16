@@ -16,19 +16,19 @@ class Main extends StatelessWidget {
             child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Neubrutalism.button(
+            Neubrutalism.neuButton(
               buttonColor: Colors.teal,
             ),
-            Neubrutalism.button(
+            Neubrutalism.neuButton(
               buttonColor: Colors.greenAccent,
             ),
-            Neubrutalism.button(
+            Neubrutalism.neuButton(
               buttonColor: Colors.orangeAccent,
             ),
-            Neubrutalism.button(
+            Neubrutalism.neuButton(
               buttonColor: Colors.redAccent,
             ),
-            Neubrutalism.button(
+            Neubrutalism.neuButton(
               buttonColor: Colors.purpleAccent,
             )
           ],

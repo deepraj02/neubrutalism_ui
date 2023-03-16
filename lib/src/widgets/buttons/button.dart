@@ -10,10 +10,10 @@ class Button extends StatefulWidget {
   );
 
   @override
-  State<Button> createState() => _ButtonState();
+  State<Button> createState() => ButtonState();
 }
 
-class _ButtonState extends State<Button> {
+class ButtonState extends State<Button> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -23,12 +23,12 @@ class _ButtonState extends State<Button> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(3),
           border: Border.all(
-            color: Color.fromARGB(255, 226, 59, 59),
+            color: Color(0xff1f1f1f),
             width: 2,
           ),
           boxShadow: [
             BoxShadow(
-              color: Color.fromARGB(255, 255, 214, 214),
+              color: Color(0xff1f1f1f),
               blurRadius: 0,
               offset: Offset(4, 4),
             ),
@@ -46,23 +46,16 @@ class _ButtonState extends State<Button> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              width: 25,
-              height: 25,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: Color.fromARGB(204, 217, 255, 0),
-              ),
-            ),
-            SizedBox(width: 16),
-            Text(
-              widget.label,
-              style: TextStyle(
-                color: Color(0xcc1f1f1f),
-                fontSize: 16,
-                fontFamily: "Roboto",
-                fontWeight: FontWeight.w500,
-              ),
+            Row(
+              children: [
+                //SizedBox(width: 30),
+                Text(
+                  widget.label,
+                ),
+                Text(
+                  widget.label,
+                ),
+              ],
             ),
           ],
         ),
