@@ -1,4 +1,4 @@
-# 0.1.0 (17-03-2023)
+# 0.1.1 (17-03-2023)
 ## Release Highlights:
 - [x] Added 2 amazing Widgets
 - [x] Added More Documentation.
