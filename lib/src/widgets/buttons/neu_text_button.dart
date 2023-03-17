@@ -1,34 +1,50 @@
 import 'package:flutter/material.dart';
 
-class Button extends StatefulWidget {
-  final String label;
-  final Color? buttonColor;
+class NeuTextButton extends StatefulWidget {
+  final Text title;
 
-  const Button(
-    this.label,
+  final Color? buttonColor;
+  final Color? shadowColor;
+  final Color? borderColor;
+
+  final GestureTapCallback onPressed;
+
+  final double buttonHeight;
+  final double buttonWidth;
+  final double borderWidth;
+
+  const NeuTextButton(
+    this.title,
     this.buttonColor,
+    this.buttonHeight,
+    this.buttonWidth,
+    this.shadowColor,
+    this.borderColor,
+    this.borderWidth,
+    this.onPressed,
   );
 
   @override
-  State<Button> createState() => ButtonState();
+  State<NeuTextButton> createState() => NeuTextButtonState();
 }
 
-class ButtonState extends State<Button> {
+class NeuTextButtonState extends State<NeuTextButton> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: widget.onPressed,
       child: Container(
-        width: 360,
-        height: 60,
+        width: widget.buttonWidth,
+        height: widget.buttonHeight,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(3),
           border: Border.all(
-            color: Color(0xff1f1f1f),
-            width: 2,
+            color: widget.borderColor!,
+            width: widget.borderWidth,
           ),
           boxShadow: [
             BoxShadow(
-              color: Color(0xff1f1f1f),
+              color: widget.shadowColor!,
               blurRadius: 0,
               offset: Offset(4, 4),
             ),
@@ -37,7 +53,7 @@ class ButtonState extends State<Button> {
         ),
         padding: const EdgeInsets.only(
           left: 16,
-          right: 154,
+          right: 15,
           top: 17,
           bottom: 18,
         ),
@@ -46,17 +62,7 @@ class ButtonState extends State<Button> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Row(
-              children: [
-                //SizedBox(width: 30),
-                Text(
-                  widget.label,
-                ),
-                Text(
-                  widget.label,
-                ),
-              ],
-            ),
+            FittedBox(child: widget.title),
           ],
         ),
       ),

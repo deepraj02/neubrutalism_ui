@@ -3,8 +3,7 @@ description: A Flutter UI kit packed with Neubrutalist UI components.
 maintainer: Deepraj Baidya (@deepraj02)
 repository: https://github.com/deepraj02/neubrutalism_ui.git
 issue_tracker: https://github.com/deepraj02/neubrutalism_ui.git/issues/
-version: 0.0.1
-
+version: 0.1.1
 
 environment:
   sdk: ">=2.19.0 <3.0.0"
@@ -12,9 +11,8 @@ environment:
 
 dependencies:
   flutter:
-    sdk: flutter 
+    sdk: flutter
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-

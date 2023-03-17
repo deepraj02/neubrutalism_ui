@@ -1,4 +1,4 @@
-
+<img src="https://user-images.githubusercontent.com/63138398/225706659-4fa396f3-fc8a-4cdc-bbd4-3600b323db97.svg" alt="Button Preview" > 
 
   <h1 align="left">neubrutalism_ui</h1>
 <!-- <p>
@@ -15,19 +15,13 @@
 
 ## Table Of Contents
 
-- [Table Of Contents](#table-of-contents)
-- [About The Project](#about-the-project)
-- [Built With Flutter 💙](#built-with-flutter-)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Usage](#usage)
-    - [Examples:](#examples)
-- [Roadmap](#roadmap)
-- [Contributing](#contributing)
-  - [Creating A Pull Request](#creating-a-pull-request)
-- [License](#license)
-- [Authors](#authors)
+- [](#)
+      - [Examples:](#examples)
+  - [Roadmap](#roadmap)
+  - [Contributing](#contributing)
+    - [Creating A Pull Request](#creating-a-pull-request)
+  - [License](#license)
+  - [Authors](#authors)
 
 ## About The Project
 
@@ -70,11 +64,60 @@ import 'package:neubrutalism_ui/neubrutalism_ui.dart';
 
 
 ## Usage
+### NeuTextButton with Customization
+
+<table>
+<tr>
+<td>
+
+```dart
+Neubrutalism.neuTextButton(
+              buttonColor: Colors.teal,
+              buttonHeight: 60,
+              borderWidth: 2,
+              onPressed: () {
+                print("object");
+              },
+              buttonWidth: 300,
+            ),
+```
+</td>
+<td>
+<img  src="https://user-images.githubusercontent.com/63138398/225709552-5730bd9b-8e18-40c1-96e2-c45e7422a4c8.png"  alt="">
+</td>
+</tr>
+</table>
+
+### NeuImageCard with Customization
+<table>
+<tr>
+<td>
+
+```dart
+Neubrutalism.neuImageCard(
+              cardImage: Image.network(
+                "https://bit.ly/infamous404",
+                fit: BoxFit.cover,
+              ),
+              cardHeight: 300,
+              cardWidth: 300,
+              paddingData: const EdgeInsets.all(8),
+            ),
+```
+
+</td>
+<td>
+<img  src="https://user-images.githubusercontent.com/63138398/225916873-aba061e0-ff91-4f69-88e8-7b744654049a.jpg"  alt="">
+</td>
+</tr>
+</table>
+
 
 #### Examples:
-| Component Name | Code                     | Preview                                                                                                                                 |
-| -------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
-| TextButton     | `Neubrutalism.neuButton` | <img src="https://user-images.githubusercontent.com/63138398/225709552-5730bd9b-8e18-40c1-96e2-c45e7422a4c8.png" alt="Button Preview" > |
+| Component Name | Code                         | Preview                                                                                                                                     |
+| -------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| TextButton     | `Neubrutalism.neuTextButton` | <img src="https://user-images.githubusercontent.com/63138398/225709552-5730bd9b-8e18-40c1-96e2-c45e7422a4c8.png" alt="Button Preview" >     |
+| NeuImageCard   | `Neubrutalism.neuImageCard`  | <img src="https://user-images.githubusercontent.com/63138398/225916873-aba061e0-ff91-4f69-88e8-7b744654049a.jpg" alt="Image Card Preview" > |
 
 ## Roadmap
 
