@@ -1,5 +1,4 @@
-name: Flutter package CI/CD
-
+name: Lets See
 on:
   pull_request:
     branches: [ master ]
