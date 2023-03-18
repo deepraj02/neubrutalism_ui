@@ -1,4 +1,4 @@
-# 0.1.1 (17-03-2023)
+# 0.1.2 (17-03-2023)
 ## Release Highlights:
 - [x] Fix Pubspec
 
