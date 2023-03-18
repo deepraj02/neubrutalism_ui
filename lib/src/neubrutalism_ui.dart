@@ -83,7 +83,7 @@ mixin Neubrutalism {
         shadowColor,
         borderColor,
         borderWidth,
-        () {},
+        onPressed,
         borderRadius,
         paddingData,
         shadowGeometry,
