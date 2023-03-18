@@ -3,23 +3,36 @@ import 'package:flutter/material.dart';
 class NeuCard extends StatefulWidget {
   final Image cardImage;
 
-  final Color? cardColor;
+  final Offset shadowGeometry;
+  final Color cardColor;
   final Color? shadowColor;
-  final Color? borderColor;
+  final Color? cardBorderColor;
+  final Color imageBorderColor;
 
   final EdgeInsets paddingData;
 
   final double cardHeight;
   final double cardWidth;
+  final double cardBorderWidth;
+  final double shadowBlurRadius;
+  final double imageBorderWidth;
+
+  final double shadowBlur;
 
   const NeuCard(
     this.cardColor,
     this.cardHeight,
     this.cardWidth,
     this.shadowColor,
-    this.borderColor,
+    this.cardBorderColor,
     this.cardImage,
     this.paddingData,
+    this.imageBorderColor,
+    this.cardBorderWidth,
+    this.shadowBlur,
+    this.shadowGeometry,
+    this.shadowBlurRadius,
+    this.imageBorderWidth,
   );
 
   @override
@@ -35,20 +48,25 @@ class NeuCardState extends State<NeuCard> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(3),
         border: Border.all(
-          color: widget.borderColor!,
-          width: 2,
+          color: widget.cardBorderColor!,
+          width: widget.cardBorderWidth,
         ),
         boxShadow: [
           BoxShadow(
             color: widget.shadowColor!,
-            blurRadius: 0,
-            offset: Offset(4, 4),
+            blurRadius: widget.shadowBlurRadius,
+            offset: widget.shadowGeometry,
           ),
         ],
         color: widget.cardColor,
       ),
       padding: widget.paddingData,
-      child: SizedBox(
+      child: Container(
+        decoration: BoxDecoration(
+            border: Border.all(
+          color: widget.imageBorderColor,
+          width: widget.cardBorderWidth,
+        )),
         child: widget.cardImage,
       ),
     );

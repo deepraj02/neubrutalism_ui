@@ -31,21 +31,33 @@ mixin Neubrutalism {
 
   static NeuCard neuImageCard({
     required Image cardImage,
-    Color? cardColor = const Color.fromARGB(255, 55, 129, 6),
-    Color? shadowColor = const Color(0xff1f1f1f),
-    Color? borderColor = const Color(0xff1f1f1f),
+    required EdgeInsets paddingData,
     required double cardHeight,
     required double cardWidth,
-    required EdgeInsets paddingData,
+    required double cardBorderWidth,
+    required double shadowBlurRadius,
+    
+    Offset blurGeometry = const Offset(4, 4),
+    Color cardColor = const Color.fromARGB(255, 55, 129, 6),
+    Color? shadowColor = const Color(0xff1f1f1f),
+    Color? cardBorderColor = const Color(0xff1f1f1f),
+    Color imageBorderColor = const Color(0xff1f1f1f),
+    double imageBorderWidth = 0,
+    double shadowBlur = 0,
   }) {
     return NeuCard(
-      cardColor,
-      cardHeight,
-      cardWidth,
-      shadowColor,
-      borderColor,
-      cardImage,
-      paddingData,
-    );
+        cardColor,
+        cardHeight,
+        cardWidth,
+        shadowColor,
+        cardBorderColor,
+        cardImage,
+        paddingData,
+        imageBorderColor,
+        cardBorderWidth,
+        shadowBlur,
+        blurGeometry,
+        shadowBlurRadius,
+        imageBorderWidth);
   }
 }
