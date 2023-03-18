@@ -1,25 +1,22 @@
-name: Check Check
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+name: Check101
 
 on:
   pull_request:
-    branches:
-      - master
+    branches: [ master ]
 
 jobs:
-  semantic_pull_request:
-    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
+  test:
+    name: Run tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-  spell-check:
-    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/spell_check.yml@v1
-    with:
-      includes: "**/*.md"
-      modified_files_only: false
+      - name: Install dependencies
+        run: flutter pub get
 
-  build:
-    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
-    with:
-      flutter_channel: stable
+      - name: Run tests
+        run: flutter test
+
+      - name: Analyze code
+        run: flutter analyze

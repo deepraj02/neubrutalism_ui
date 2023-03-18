@@ -21,7 +21,7 @@ class Main extends StatelessWidget {
               buttonHeight: 60,
               borderWidth: 2,
               onPressed: () {
-                print("object");
+                debugPrint("object");
               },
               buttonWidth: 300,
             ),
