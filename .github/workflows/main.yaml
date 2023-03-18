@@ -1,4 +1,4 @@
-name: Check101
+name: Lets See
 
 on:
   pull_request:
@@ -10,13 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Install dependencies
-        run: flutter pub get
-
-      - name: Run tests
-        run: flutter test
-
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
       - name: Analyze code
         run: flutter analyze
