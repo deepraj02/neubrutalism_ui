@@ -37,7 +37,37 @@ class Main extends StatelessWidget {
                 cardBorderWidth: 3,
                 shadowBlur: 10,
                 shadowBlurRadius: 1,
-                blurGeometry: const Offset(5, 4))
+                blurGeometry: const Offset(5, 4)),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Neubrutalism.neuIconButton(
+                  icon: const Icon(
+                    Icons.add,
+                    size: 30,
+                  ),
+                  buttonColor: const Color.fromARGB(213, 235, 227, 13),
+                  buttonHeight: 70,
+                  buttonWidth: 70,
+                  borderWidth: 3,
+                  onPressed: () {},
+                  borderRadius: BorderRadius.circular(5),
+                  paddingData: const EdgeInsets.all(1),
+                ),
+                Neubrutalism.neuIconButton(
+                  icon: const Icon(
+                    Icons.remove,
+                  ),
+                  buttonColor: const Color.fromARGB(212, 13, 235, 224),
+                  buttonHeight: 70,
+                  buttonWidth: 70,
+                  borderWidth: 3,
+                  onPressed: () {},
+                  borderRadius: BorderRadius.circular(5),
+                  paddingData: const EdgeInsets.all(5),
+                ),
+              ],
+            ),
           ],
         )),
       ),
