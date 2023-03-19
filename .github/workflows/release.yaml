@@ -9,13 +9,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@master
       - name: Set package version
         run: echo "PACKAGE_VERSION=$(dart pubspec.yaml --version)" >> $GITHUB_ENV
-        env:
-          GITHUB_TOKEN: ${{ secrets.CREATE_RELEASE }}
+       
 
       - name: Create release
-        uses: actions/create-release@v1
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: v${{ env.PACKAGE_VERSION }}
           release_name: Release ${{ env.PACKAGE_VERSION }}
