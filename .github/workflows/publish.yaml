@@ -1,0 +1,49 @@
+name: Publish Flutter Package
+
+on:
+  release:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Analyze code
+        run: flutter analyze
+
+      - name: Format code
+        run: dart format --fix .
+
+      - name: Check publish warnings
+        run: dart pub publish --dry-run
+
+      - name: Publish package
+        uses: k-paxian/dart-package-publisher@v1.5.1
+        with:
+          credentialJson: ${{ secrets.CREDENTIAL_SECRET }} 
+          flutter: true
+          skipTests: true
+
+      - name: Set package version
+        run: echo "PACKAGE_VERSION=$(dart pubspec.yaml --version)" >> $GITHUB_ENV
+
+      - name: Create release
+        uses: actions/create-release@v1
+        with:
+          tag_name: v${{ env.PACKAGE_VERSION }}
+          release_name: Release ${{ env.PACKAGE_VERSION }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.Neu_release_Token }}
