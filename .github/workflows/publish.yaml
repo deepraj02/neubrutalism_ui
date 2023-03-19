@@ -1,7 +1,7 @@
 name: Publish Flutter Package
 
 on:
-  release:
+  push:
     branches:
       - master
 
