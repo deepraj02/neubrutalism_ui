@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:neubrutalism_ui/neubrutalism_ui.dart';
 
-void main() => runApp(const Main());
+void main() => runApp(Main());
 
 class Main extends StatelessWidget {
-  const Main({super.key});
+  final TextEditingController _editingController = TextEditingController();
+  Main({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,9 +13,9 @@ class Main extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.white,
-        body: Center(
-            child: Column(
+        body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Neubrutalism.neuTextButton(
               buttonColor: Colors.teal,
@@ -33,7 +34,7 @@ class Main extends StatelessWidget {
                 cardColor: Colors.teal,
                 cardHeight: 300,
                 cardWidth: 300,
-                paddingData: const EdgeInsets.all(8),
+                paddingData: const EdgeInsets.all(10),
                 cardBorderWidth: 3,
                 shadowBlur: 10,
                 shadowBlurRadius: 1,
@@ -68,8 +69,16 @@ class Main extends StatelessWidget {
                 ),
               ],
             ),
+            Neubrutalism.neuSearchBar(
+              hintText: "Search",
+              searchBarHeight: 70,
+              searchBarIcon: const Icon(Icons.search),
+              searchBarWidth: 300,
+              borderRadius: BorderRadius.circular(15),
+              searchController: _editingController,
+            )
           ],
-        )),
+        ),
       ),
     );
   }

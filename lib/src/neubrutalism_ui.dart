@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:neubrutalism_ui/neubrutalism_ui.dart';
-import 'package:neubrutalism_ui/src/widgets/buttons/neu_icon_button.dart';
-
-import 'widgets/containers/neu_card.dart';
 
 export 'widgets/buttons/neu_text_button.dart';
 
@@ -88,5 +85,41 @@ mixin Neubrutalism {
         paddingData,
         shadowGeometry,
         shadowBlurRadius);
+  }
+
+  static NeuSearchBar neuSearchBar({
+    required String hintText,
+    required double searchBarHeight,
+    required double searchBarWidth,
+    required Icon searchBarIcon,
+    required BorderRadiusGeometry borderRadius,
+    required TextEditingController searchController,
+    TextStyle? hintStyle = const TextStyle(fontSize: 20),
+    double borderWidth = 3,
+    double shadowBlurRadius = 0,
+    Offset shadowOffset = const Offset(4, 4),
+    Color borderColor = Colors.black87,
+    Color searchBarColor = const Color.fromARGB(255, 239, 218, 186),
+    Color shadowColor = Colors.black87,
+    TextInputType? keyboardType,
+    TextInputAction? textInputAction,
+    TextStyle? inputStyle = const TextStyle(fontSize: 20),
+  }) {
+    return NeuSearchBar(
+        hintText,
+        searchBarHeight,
+        searchBarWidth,
+        borderWidth,
+        shadowBlurRadius,
+        searchBarIcon,
+        shadowOffset,
+        borderRadius,
+        borderColor,
+        searchBarColor,
+        shadowColor,
+        hintStyle,
+        searchController,
+        keyboardType,
+        inputStyle);
   }
 }
