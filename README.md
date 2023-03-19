@@ -118,6 +118,8 @@ Neubrutalism.neuImageCard(
 | -------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | TextButton     | `Neubrutalism.neuTextButton` | <img src="https://user-images.githubusercontent.com/63138398/225709552-5730bd9b-8e18-40c1-96e2-c45e7422a4c8.png" alt="Button Preview" >     |
 | NeuImageCard   | `Neubrutalism.neuImageCard`  | <img src="https://user-images.githubusercontent.com/63138398/225916873-aba061e0-ff91-4f69-88e8-7b744654049a.jpg" alt="Image Card Preview" > |
+NeuSearchBar|Neubrutalism.neuSearchBar|<img src="https://user-images.githubusercontent.com/63138398/226177386-81a09de2-05f5-4848-8287-0fcbd20ba409.png" alt="NeuSearch Preview" > |
+NeuIconButton|Neubrutalism.neuIconButton| <img src="https://user-images.githubusercontent.com/63138398/226177407-b435f7c2-6234-4943-a33e-6dbf1a714fa6.png" alt="Neu Icon Button Preview" >|
 
 ## Roadmap
 
