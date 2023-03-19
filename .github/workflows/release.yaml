@@ -1,5 +1,4 @@
-name: Publish Flutter Package
-
+name: Create Release Tag
 on:
   push:
     branches:
@@ -13,7 +12,7 @@ jobs:
       - name: Set package version
         run: echo "PACKAGE_VERSION=$(dart pubspec.yaml --version)" >> $GITHUB_ENV
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.CREATE_RELEASE }}
 
       - name: Create release
         uses: actions/create-release@v1
