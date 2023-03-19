@@ -137,7 +137,7 @@ Contributions are what make the open source community such an amazing place to b
 - Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
 - Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 - Push to the Branch (`git push origin feature/AmazingFeature`)
-- Open a Pull Request
+- Open a Pull Request (`choose the Staging branch From the Dropdown`)
 
 ## License
 
