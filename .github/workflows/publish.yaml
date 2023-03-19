@@ -37,6 +37,8 @@ jobs:
 
       - name: Set package version
         run: echo "PACKAGE_VERSION=$(dart pubspec.yaml --version)" >> $GITHUB_ENV
+        env:
+          GITHUB_TOKEN: ${{ secrets.Neu_release_Token }}
 
       - name: Create release
         uses: actions/create-release@v1
@@ -45,5 +47,4 @@ jobs:
           release_name: Release ${{ env.PACKAGE_VERSION }}
           draft: false
           prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.Neu_release_Token }}
+      
