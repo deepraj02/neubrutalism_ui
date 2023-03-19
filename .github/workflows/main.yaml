@@ -2,7 +2,7 @@ name: Lets See
 
 on:
   pull_request:
-    branches: [ master ]
+    branches: [ staging ]
 
 jobs:
   test:
