@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class NeuCard extends StatefulWidget {
   final Image cardImage;
 
+  /// WhatsUp Nigga
+
   final Offset shadowGeometry;
   final Color cardColor;
   final Color? shadowColor;
@@ -21,6 +23,8 @@ class NeuCard extends StatefulWidget {
 
   const NeuCard(
     this.cardColor,
+
+    /// this is all
     this.cardHeight,
     this.cardWidth,
     this.shadowColor,

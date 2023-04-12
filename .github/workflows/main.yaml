@@ -5,8 +5,8 @@ on:
     branches: [ staging ]
 
 jobs:
-  test:
-    name: Run tests
+  configuring-changes:
+    name: Checking Code
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code

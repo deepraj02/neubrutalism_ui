@@ -7,8 +7,8 @@ on:
     branches: [experimantal]
 
 jobs:
-  test:
-    name: Run tests
+  checking-pr:
+    name: Configuring
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -21,6 +21,7 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
+          flutter-version: '3.7.5'
           channel: stable
       - name: Analyze code
         run: flutter analyze

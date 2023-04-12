@@ -2,10 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:neubrutalism_ui/neubrutalism_ui.dart';
 
 export 'widgets/buttons/neu_text_button.dart';
+export 'widgets/buttons/neu_icon_button.dart';
+export 'widgets/containers/neu_card.dart';
+export 'widgets/containers/neu_search_bar.dart';
 
-mixin Neubrutalism {
-  //% Adding the Button Class.
-  static NeuTextButton neuTextButton({
+class Neubrutalism {
+  /// Creates a Material Design button.
+
+  static NeuTextButton neuTextButton(
+
+      /// Creates a Material Design button.
+      ///
+      /// To create a custom Material button consider using [TextButton],
+      /// [ElevatedButton], or [OutlinedButton].
+      {
     Text title = const Text("Hello"),
     Color buttonColor = const Color(0xFF378106),
     Color? shadowColor = const Color(0xff1f1f1f),
@@ -27,8 +37,9 @@ mixin Neubrutalism {
     );
   }
 
+  /// Creates a Neubrutalist Design Image Card.
   static NeuCard neuImageCard({
-    required Image cardImage,
+    required Image cardImage, 
     required EdgeInsets paddingData,
     required double cardHeight,
     required double cardWidth,
@@ -71,8 +82,7 @@ mixin Neubrutalism {
     Offset shadowGeometry = const Offset(4, 4),
     Color? shadowColor = const Color(0xff1f1f1f),
     Color? borderColor = const Color(0xff1f1f1f),
-  }) {
-    return NeuIconButton(
+  }) => NeuIconButton(
         icon,
         buttonColor,
         buttonHeight,
@@ -85,7 +95,6 @@ mixin Neubrutalism {
         paddingData,
         shadowGeometry,
         shadowBlurRadius);
-  }
 
   static NeuSearchBar neuSearchBar({
     required String hintText,
