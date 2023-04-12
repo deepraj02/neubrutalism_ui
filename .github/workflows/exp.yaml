@@ -1,0 +1,26 @@
+name: Checking the Changes
+
+on:
+  push:
+    branches: [experimantal]
+  pull_request:
+    branches: [experimantal]
+
+jobs:
+  test:
+    name: Run tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+      - name: Analyze code
+        run: flutter analyze
