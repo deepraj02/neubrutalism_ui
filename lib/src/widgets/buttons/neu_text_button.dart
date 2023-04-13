@@ -1,43 +1,15 @@
 import 'package:flutter/material.dart';
 
 class NeuTextButton extends StatefulWidget {
-  /// Creates a neuTextButton(Widget) based on [Stateful Widget]
-  /// Creates a Material Design button.
-  ///
-  /// To create a custom Material button consider using [TextButton],
-  /// [ElevatedButton], or [OutlinedButton].
-  ///
-  /// The [autofocus] and [clipBehavior] arguments must not be null.
-  /// Additionally,  [elevation], [hoverElevation], [focusElevation],
-  /// [highlightElevation], and [disabledElevation] must be non-negative, if
-  /// specified.
   final Text title;
-  /// Adds a title to the [neuTextButton] of type [Text].
-
   final Color? buttonColor;
-  /// *Adds the button  Color [inside of the Button]
-  
-  
   final Color? shadowColor;
-  /// Specifies the Color of the background Shadow
-  
-  
+
   final Color? borderColor;
-  /// Specifies the Color of the Button Border
-  
-  
+
   final GestureTapCallback onPressed;
-  /// Basically the onPressed Fuunction
-
   final double buttonHeight;
-  /// * Sets the Buutton height property [type double]
-  ///
-
-
   final double buttonWidth;
-  ///
-  ///
-  ///
   final double borderWidth;
 
   const NeuTextButton(
@@ -89,7 +61,9 @@ class NeuTextButtonState extends State<NeuTextButton> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            FittedBox(child: widget.title),
+            Align(
+              child: FittedBox(child: widget.title),
+            ),
           ],
         ),
       ),

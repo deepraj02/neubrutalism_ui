@@ -27,6 +27,7 @@ class Main extends StatelessWidget {
                   debugPrint("object");
                 },
                 buttonWidth: 300,
+                shadowColor: Colors.black,
               ),
               Neubrutalism.neuImageCard(
                   cardImage: Image.network(
@@ -40,7 +41,8 @@ class Main extends StatelessWidget {
                   cardBorderWidth: 3,
                   shadowBlur: 10,
                   shadowBlurRadius: 1,
-                  blurGeometry: const Offset(5, 4)),
+                  blurGeometry: const Offset(5, 4),
+                  cardBorderColor: Colors.black),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -79,11 +81,6 @@ class Main extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
                 searchController: _editingController,
               ),
-              Neubrutalism.neuTextButton(
-                  buttonHeight: 50,
-                  buttonWidth: 100,
-                  borderWidth: 2,
-                  onPressed: () {}),
             ],
           ),
         ),

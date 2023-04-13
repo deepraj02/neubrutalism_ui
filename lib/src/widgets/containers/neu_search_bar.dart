@@ -48,17 +48,16 @@ class _NeuSearchBarState extends State<NeuSearchBar> {
       width: widget.searchBarWidth,
       decoration: BoxDecoration(
         borderRadius: widget.borderRadius,
-        color: widget.searchBarColor, //Color.fromARGB(255, 239, 218, 186),
+        color: widget.searchBarColor,
         border: Border.all(
-          color: widget.borderColor, //Colors.black,
+          color: widget.borderColor,
           width: widget.borderWidth,
         ),
         boxShadow: [
           BoxShadow(
-              color: widget.shadowColor, // Color.fromARGB(255, 0, 0, 0),
+              color: widget.shadowColor,
               blurRadius: widget.shadowBlurRadius,
-              offset: widget.shadowOffset //Offset(4, 4),
-              ),
+              offset: widget.shadowOffset),
         ],
       ),
       child: Row(
