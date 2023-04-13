@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 
 class NeuTextButton extends StatefulWidget {
   final Text title;
-
   final Color? buttonColor;
   final Color? shadowColor;
+
   final Color? borderColor;
 
   final GestureTapCallback onPressed;
-
   final double buttonHeight;
   final double buttonWidth;
   final double borderWidth;
@@ -62,7 +61,9 @@ class NeuTextButtonState extends State<NeuTextButton> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            FittedBox(child: widget.title),
+            Align(
+              child: FittedBox(child: widget.title),
+            ),
           ],
         ),
       ),

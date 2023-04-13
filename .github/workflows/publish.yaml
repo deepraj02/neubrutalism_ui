@@ -1,12 +1,12 @@
 name: Publish Flutter Package
 
 on:
-  release:
+  push:
     branches:
       - master
 
 jobs:
-  build:
+  publishing-package:
     runs-on: ubuntu-latest
 
     steps:
@@ -35,15 +35,3 @@ jobs:
           flutter: true
           skipTests: true
 
-      - name: Set package version
-        run: echo "PACKAGE_VERSION=$(dart pubspec.yaml --version)" >> $GITHUB_ENV
-
-      - name: Create release
-        uses: actions/create-release@v1
-        with:
-          tag_name: v${{ env.PACKAGE_VERSION }}
-          release_name: Release ${{ env.PACKAGE_VERSION }}
-          draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.Neu_release_Token }}
