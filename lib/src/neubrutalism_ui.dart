@@ -77,34 +77,34 @@ class Neubrutalism {
   /// * `shadowBlur`: The intensity of the shadow around the card.
   ///
   static NeuCard neuImageCard({
-    required Image cardImage,
     required EdgeInsets paddingData,
     required double cardHeight,
     required double cardWidth,
     required double cardBorderWidth,
     required double shadowBlurRadius,
+   BlurStyle shadowBlurStyle=BlurStyle.solid,
     Offset blurGeometry = const Offset(4, 4),
     Color cardColor = const Color.fromARGB(255, 55, 129, 6),
     Color? shadowColor = const Color(0xff1f1f1f),
     Color? cardBorderColor = const Color(0xff1f1f1f),
     Color imageBorderColor = const Color(0xff1f1f1f),
     double imageBorderWidth = 0,
-    double shadowBlur = 0,
+    Widget? child,
   }) {
     return NeuCard(
+        blurGeometry,
         cardColor,
-        cardHeight,
-        cardWidth,
         shadowColor,
         cardBorderColor,
-        cardImage,
-        paddingData,
         imageBorderColor,
+        paddingData,
+        cardHeight,
+        cardWidth,
         cardBorderWidth,
-        shadowBlur,
-        blurGeometry,
         shadowBlurRadius,
-        imageBorderWidth);
+        imageBorderWidth,
+        shadowBlurStyle,
+        child);
   }
 
   /// Creates a Neubrutalist Design Icon Button widget with the given properties.

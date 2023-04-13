@@ -30,17 +30,27 @@ class Main extends StatelessWidget {
                 shadowColor: Colors.black,
               ),
               Neubrutalism.neuImageCard(
-                  cardImage: Image.network(
-                    "https://images.unsplash.com/photo-1674574124345-02c525664b65?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-                    fit: BoxFit.cover,
+                  child: Column(
+                    children: [
+                      Image.network(
+                        "https://images.unsplash.com/photo-1674574124345-02c525664b65?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                        fit: BoxFit.cover,
+                      ),
+                      Container(
+                        decoration: const BoxDecoration(
+                            color: Colors.amber,
+                            backgroundBlendMode: BlendMode.saturation),
+                        child: const Text("hello"),
+                      )
+                    ],
                   ),
                   cardColor: Colors.teal,
                   cardHeight: 300,
                   cardWidth: 300,
                   paddingData: const EdgeInsets.all(10),
                   cardBorderWidth: 3,
-                  shadowBlur: 10,
-                  shadowBlurRadius: 1,
+                  
+                  shadowBlurRadius: 5,
                   blurGeometry: const Offset(5, 4),
                   cardBorderColor: Colors.black),
               Row(
