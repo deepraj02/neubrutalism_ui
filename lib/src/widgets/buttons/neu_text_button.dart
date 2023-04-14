@@ -1,27 +1,40 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
+import 'package:neubrutalism_ui/neubrutalism_ui.dart';
+
 class NeuTextButton extends StatefulWidget {
-  final Text title;
-  final Color? buttonColor;
-  final Color? shadowColor;
+  final Text? title;
+  final Color buttonColor;
+  final Color shadowColor;
 
-  final Color? borderColor;
+  /// Adds Color to the Border of the button
+  final Color borderColor;
 
-  final GestureTapCallback onPressed;
-  final double buttonHeight;
-  final double buttonWidth;
+  final GestureTapCallback? onPressed;
+  final double? buttonHeight;
+  final double? buttonWidth;
   final double borderWidth;
+  final double shadowBlurRadius;
+  final BorderRadiusGeometry? borderRadius;
+  final Offset blurGeometry;
+  final Widget? child;
 
-  const NeuTextButton(
+  const NeuTextButton({
+    Key? key,
     this.title,
-    this.buttonColor,
+    this.buttonColor = neuDefault1,
+    this.shadowColor = neuShadow,
+    this.borderColor = neuBlack,
+    this.onPressed,
     this.buttonHeight,
     this.buttonWidth,
-    this.shadowColor,
-    this.borderColor,
-    this.borderWidth,
-    this.onPressed,
-  );
+    this.borderWidth = neuBorder,
+    this.shadowBlurRadius = neuShadowBlurRadius,
+    this.borderRadius,
+    this.blurGeometry = neuOffset,
+    this.child,
+  }) : super(key: key);
 
   @override
   State<NeuTextButton> createState() => NeuTextButtonState();
@@ -36,36 +49,22 @@ class NeuTextButtonState extends State<NeuTextButton> {
         width: widget.buttonWidth,
         height: widget.buttonHeight,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(3),
+          borderRadius: widget.borderRadius,
           border: Border.all(
-            color: widget.borderColor!,
+            color: widget.borderColor,
             width: widget.borderWidth,
           ),
           boxShadow: [
             BoxShadow(
-              color: widget.shadowColor!,
-              blurRadius: 0,
-              offset: Offset(4, 4),
+              color: widget.shadowColor,
+              blurRadius: widget.shadowBlurRadius,
+              offset: widget.blurGeometry,
             ),
           ],
           color: widget.buttonColor,
         ),
-        padding: const EdgeInsets.only(
-          left: 16,
-          right: 15,
-          top: 17,
-          bottom: 18,
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Align(
-              child: FittedBox(child: widget.title),
-            ),
-          ],
-        ),
+        child: widget.child,
+        clipBehavior: Clip.antiAlias,
       ),
     );
   }

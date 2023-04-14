@@ -2,15 +2,27 @@
 
 - Widgets:
 
-    - [ ] neuImageCard
-      - [ ] Nested Widgets
-      - [ ] Pixel Overflow Fix
-      - [ ] Add `required` field to as less Params as possible
-      - [ ] make the params relevant
+    - [x] neuImageCard
 
-    - [ ] neuTextButton:
-        - [ ] Add Nested widget
-        - [ ] add textAlign Property
+
+      - [x] Nested Widgets
+      - [x] Pixel Overflow Fix
+      - [x] Add `required` field to as less Params as possible
+      - [x] make the params relevant
+      - [x] del: cardImage
+
+    - [x] neuTextButton:
+        - [x] Add Nested widget
+        - [x] add textAlign Property
         - [ ] add onHover effect with flutter_animate
         - [ ]  
-
+    
+    - [ ] neuSearchBar
+      - [ ] Add `required` field to as less Params as possible
+      - [ ] make the params relevant
+      - [ ] 
+- Fixes and Changes:
+    - [x] Removed Neubrutalism class no need `Neubrutalism.<>` not required.
+    - [ ] Documentation Fixes
+    - [ ] 
+    - [ ] 
