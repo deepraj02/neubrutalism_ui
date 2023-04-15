@@ -15,14 +15,14 @@
         - [x] Add Nested widget
         - [x] add textAlign Property
         - [ ] add onHover effect with flutter_animate
-        - [ ]  
+ 
     
-    - [ ] neuSearchBar
-      - [ ] Add `required` field to as less Params as possible
-      - [ ] make the params relevant
+    - [x] neuSearchBar
+      - [x] Add `required` field to as less Params as possible
+      - [x] make the params relevant
       - [ ] 
 - Fixes and Changes:
     - [x] Removed Neubrutalism class no need `Neubrutalism.<>` not required.
-    - [ ] Documentation Fixes
+    - [x] Documentation Fixes
     - [ ] 
     - [ ] 

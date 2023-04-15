@@ -3,23 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:neubrutalism_ui/neubrutalism_ui.dart';
 
 class NeuSearchBar extends StatefulWidget {
-  final TextInputType? keyboardType;
-
-  final TextStyle? inputStyle;
-  final String? hintText;
-  final TextEditingController? searchController;
-  final TextStyle? hintStyle;
-  final double? searchBarHeight;
-  final double? searchBarWidth;
-  final double borderWidth;
-  final double shadowBlurRadius;
-  final Icon? searchBarIcon;
-  final Offset shadowOffset;
-  final BorderRadiusGeometry? borderRadius;
-  final Color borderColor;
-  final Color? searchBarColor;
-  final Color shadowColor;
-
   const NeuSearchBar({
     Key? key,
     this.keyboardType,
@@ -38,6 +21,23 @@ class NeuSearchBar extends StatefulWidget {
     this.searchBarColor,
     this.shadowColor = neuShadow,
   }) : super(key: key);
+
+  final TextInputType? keyboardType;
+
+  final TextStyle? inputStyle;
+  final String? hintText;
+  final TextEditingController? searchController;
+  final TextStyle? hintStyle;
+  final double? searchBarHeight;
+  final double? searchBarWidth;
+  final double borderWidth;
+  final double shadowBlurRadius;
+  final Icon? searchBarIcon;
+  final Offset shadowOffset;
+  final BorderRadiusGeometry? borderRadius;
+  final Color borderColor;
+  final Color? searchBarColor;
+  final Color shadowColor;
 
   @override
   State<NeuSearchBar> createState() => _NeuSearchBarState();

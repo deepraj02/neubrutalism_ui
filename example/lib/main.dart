@@ -33,7 +33,6 @@ class TestNeu extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(100.0),
               child: NeuTextButton(
-                borderRadius: BorderRadius.circular(30),
                 buttonColor: const Color.fromARGB(255, 208, 238, 235),
                 borderColor: Colors.black,
                 shadowColor: Colors.black,
@@ -55,31 +54,53 @@ class TestNeu extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(15.0),
               child: NeuContainer(
-                //blurGeometry: const Offset(-3, -6),
                 height: 160,
                 width: 250,
-                borderRadius: BorderRadius.circular(30),
                 child: Column(
-                  children: const [
-                    Icon(
-                      Icons.accessible_outlined,
-                      size: 50,
+                  children: [
+                    const Text(
+                      "This is NeuContainer",
+                      style: TextStyle(fontSize: 23),
                     ),
-                    Text("about this Icon, \nthis is a woke icon")
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Icon(
+                          Icons.accessible_outlined,
+                          size: 50,
+                        ),
+                        Icon(
+                          Icons.accessible_outlined,
+                          size: 50,
+                        ),
+                        Icon(
+                          Icons.accessible_outlined,
+                          size: 50,
+                        ),
+                        Icon(
+                          Icons.accessible_outlined,
+                          size: 50,
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
             ),
             NeuSearchBar(
-              borderRadius: BorderRadius.circular(25),
-              searchBarIcon: const Icon(Icons.abc),
+              borderRadius: BorderRadius.circular(18),
+              searchBarIcon: const Icon(Icons.search),
               searchBarColor: const Color.fromARGB(255, 144, 186, 214),
-              searchBarHeight: 90,
-              searchBarWidth: 160,
-              hintStyle: const TextStyle(fontSize: 40),
-              inputStyle: const TextStyle(fontSize: 40, color: Colors.red),
+              searchBarHeight: 60,
+              searchBarWidth: MediaQuery.of(context).size.width * 0.9,
+              hintStyle: const TextStyle(fontSize: 20),
+              inputStyle: const TextStyle(
+                  fontSize: 20, color: Color.fromARGB(255, 0, 0, 0)),
             ),
           ],
         ),
