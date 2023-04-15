@@ -102,6 +102,9 @@ class TestNeu extends StatelessWidget {
               inputStyle: const TextStyle(
                   fontSize: 20, color: Color.fromARGB(255, 0, 0, 0)),
             ),
+            NeuIconButton(
+              icon: const Icon(Icons.abc),
+            ),
           ],
         ),
       ),

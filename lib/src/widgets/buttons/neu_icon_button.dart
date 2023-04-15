@@ -35,9 +35,9 @@ class NeuIconButton extends StatefulWidget {
     this.paddingData,
     this.borderRadius,
     this.blurGeometry = neuOffset,
-    this.buttonHeight,
+    this.buttonHeight = 50,
     this.shadowBlurRadius = neuShadowBlurRadius,
-    this.buttonWidth,
+    this.buttonWidth = 50,
     this.borderWidth = neuBorder,
   }) : super(key: key);
 
@@ -81,11 +81,11 @@ class NeuIconButton extends StatefulWidget {
 
   /// - buttonHeight (optional) : A double value that defines the height of the button.
   ///
-  final double? buttonHeight;
+  final double buttonHeight;
 
   /// - buttonWidth (optional) : A double value that defines the width of the button.
   ///
-  final double? buttonWidth;
+  final double buttonWidth;
 
   /// - shadowBlurRadius (optional) : A double that defines the radius of the blur applied to the shadow of the card.
   ///
