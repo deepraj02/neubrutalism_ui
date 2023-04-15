@@ -1,88 +1,111 @@
 import 'package:flutter/material.dart';
 import 'package:neubrutalism_ui/neubrutalism_ui.dart';
 
-void main() => runApp(Main());
+void main() => runApp(const Main());
 
 class Main extends StatelessWidget {
-  final TextEditingController _editingController = TextEditingController();
-  Main({super.key});
+  //final TextEditingController _editingController = TextEditingController();
+  const Main({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: Colors.white,
-        body: SingleChildScrollView(
-          padding: const EdgeInsets.all(70),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            //crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Neubrutalism.neuTextButton(
-                buttonColor: Colors.teal,
-                buttonHeight: 60,
-                borderWidth: 2,
-                onPressed: () {
-                  debugPrint("object");
-                },
-                buttonWidth: 300,
+      home: TestNeu(),
+    );
+  }
+}
+
+class TestNeu extends StatelessWidget {
+  const TestNeu({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 190, 169, 224),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          //crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(100.0),
+              child: NeuTextButton(
+                buttonColor: const Color.fromARGB(255, 208, 238, 235),
+                borderColor: Colors.black,
                 shadowColor: Colors.black,
-              ),
-              Neubrutalism.neuImageCard(
-                  cardImage: Image.network(
-                    "https://images.unsplash.com/photo-1674574124345-02c525664b65?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-                    fit: BoxFit.cover,
-                  ),
-                  cardColor: Colors.teal,
-                  cardHeight: 300,
-                  cardWidth: 300,
-                  paddingData: const EdgeInsets.all(10),
-                  cardBorderWidth: 3,
-                  shadowBlur: 10,
-                  shadowBlurRadius: 1,
-                  blurGeometry: const Offset(5, 4),
-                  cardBorderColor: Colors.black),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Neubrutalism.neuIconButton(
-                    icon: const Icon(
-                      Icons.add,
-                      size: 30,
+                buttonHeight: 50,
+                buttonWidth: MediaQuery.of(context).size.width * 0.5,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text(
+                        "Hello",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.w600),
+                      ),
                     ),
-                    buttonColor: const Color.fromARGB(213, 235, 227, 13),
-                    buttonHeight: 70,
-                    buttonWidth: 70,
-                    borderWidth: 3,
-                    onPressed: () {},
-                    borderRadius: BorderRadius.circular(5),
-                    paddingData: const EdgeInsets.all(1),
-                  ),
-                  Neubrutalism.neuIconButton(
-                    icon: const Icon(
-                      Icons.remove,
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: NeuContainer(
+                height: 160,
+                width: 250,
+                child: Column(
+                  children: [
+                    const Text(
+                      "This is NeuContainer",
+                      style: TextStyle(fontSize: 23),
                     ),
-                    buttonColor: const Color.fromARGB(212, 13, 235, 224),
-                    buttonHeight: 70,
-                    buttonWidth: 70,
-                    borderWidth: 3,
-                    onPressed: () {},
-                    borderRadius: BorderRadius.circular(5),
-                    paddingData: const EdgeInsets.all(5),
-                  ),
-                ],
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Icon(
+                          Icons.accessible_outlined,
+                          size: 50,
+                        ),
+                        Icon(
+                          Icons.accessible_outlined,
+                          size: 50,
+                        ),
+                        Icon(
+                          Icons.accessible_outlined,
+                          size: 50,
+                        ),
+                        Icon(
+                          Icons.accessible_outlined,
+                          size: 50,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-              Neubrutalism.neuSearchBar(
-                hintText: "Search",
-                searchBarHeight: 70,
-                searchBarIcon: const Icon(Icons.search),
-                searchBarWidth: 300,
-                borderRadius: BorderRadius.circular(15),
-                searchController: _editingController,
-              ),
-            ],
-          ),
+            ),
+            NeuSearchBar(
+              borderRadius: BorderRadius.circular(18),
+              searchBarIcon: const Icon(Icons.search),
+              searchBarColor: const Color.fromARGB(255, 144, 186, 214),
+              searchBarHeight: 60,
+              searchBarWidth: MediaQuery.of(context).size.width * 0.9,
+              hintStyle: const TextStyle(fontSize: 20),
+              inputStyle: const TextStyle(
+                  fontSize: 20, color: Color.fromARGB(255, 0, 0, 0)),
+            ),
+            NeuIconButton(
+              icon: const Icon(Icons.abc),
+            ),
+          ],
         ),
       ),
     );
