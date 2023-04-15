@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
 import 'package:neubrutalism_ui/neubrutalism_ui.dart';
 
 class NeuCard extends StatefulWidget {
@@ -24,6 +25,26 @@ class NeuCard extends StatefulWidget {
   ///
   ///   - const neuOffset = Offset(4, 4);
   ///   - const neuBlurStyle = BlurStyle.solid;
+  ///
+  ///
+  ///
+  NeuCard({
+    Key? key,
+    this.blurGeometry = neuOffset,
+    this.cardColor,
+    this.shadowColor = neuShadow,
+    this.cardBorderColor = neuBlack,
+    this.imageBorderColor = neuBlack,
+    this.paddingData,
+    this.cardHeight,
+    this.cardWidth,
+    this.cardBorderWidth = neuBorder,
+    this.shadowBlurRadius = neuShadowBlurRadius,
+    this.imageBorderWidth = neuBorder,
+    this.shadowBlurStyle = neuBlurStyle,
+    this.child,
+    this.borderRadius,
+  }) : super(key: key);
 
   /// - blurGeometry : An Offset that defines the amount and direction of the blur applied to the shadow of the card.
   ///
@@ -87,22 +108,9 @@ class NeuCard extends StatefulWidget {
   /// - child (optional) : A widget that is displayed inside the card.
   final Widget? child;
 
-  const NeuCard({
-    Key? key,
-    this.blurGeometry = neuOffset,
-    this.cardColor,
-    this.shadowColor = neuShadow,
-    this.cardBorderColor = neuBlack,
-    this.imageBorderColor = neuBlack,
-    this.paddingData,
-    this.cardHeight,
-    this.cardWidth,
-    this.cardBorderWidth = neuBorder,
-    this.shadowBlurRadius = neuShadowBlurRadius,
-    this.imageBorderWidth = neuBorder,
-    this.shadowBlurStyle = neuBlurStyle,
-    this.child,
-  }) : super(key: key);
+  /// - borderRadius(optional): A BorderRadius parameter helpful for twerking the Card Shape
+  ///
+  final BorderRadiusGeometry? borderRadius;
 
   @override
   State<NeuCard> createState() => NeuCardState();
@@ -115,7 +123,7 @@ class NeuCardState extends State<NeuCard> {
         width: widget.cardWidth,
         height: widget.cardHeight,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(3),
+          borderRadius: widget.borderRadius,
           border: Border.all(
             color: widget.cardBorderColor,
             width: widget.cardBorderWidth,

@@ -23,7 +23,7 @@ class NeuSearchBar extends StatefulWidget {
   ///
   ///   - const neuOffset = Offset(4, 4);
   ///   - const neuBlurStyle = BlurStyle.solid;
-  const NeuSearchBar({
+  NeuSearchBar({
     Key? key,
     this.keyboardType,
     this.inputStyle,

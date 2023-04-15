@@ -89,7 +89,7 @@ class NeuTextButton extends StatefulWidget {
   /// - borderRadius (optional) : A BorderRadiusGeometry that defines the border radius of the button.
   ///
   /// If not specified, the button will have a circular border radius.
-  final BorderRadiusGeometry? borderRadius;
+  final BorderRadius? borderRadius;
 
   /// - blurGeometry (optional) : An Offset that defines the blur offset of the button's shadow.
   ///
