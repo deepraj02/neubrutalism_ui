@@ -1,40 +1,43 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:neubrutalism_ui/neubrutalism_ui.dart';
 
 class NeuSearchBar extends StatefulWidget {
   final TextInputType? keyboardType;
 
   final TextStyle? inputStyle;
-  final String hintText;
-  final TextEditingController searchController;
+  final String? hintText;
+  final TextEditingController? searchController;
   final TextStyle? hintStyle;
-  final double searchBarHeight;
-  final double searchBarWidth;
+  final double? searchBarHeight;
+  final double? searchBarWidth;
   final double borderWidth;
   final double shadowBlurRadius;
-  final Icon searchBarIcon;
+  final Icon? searchBarIcon;
   final Offset shadowOffset;
   final BorderRadiusGeometry? borderRadius;
   final Color borderColor;
-  final Color searchBarColor;
+  final Color? searchBarColor;
   final Color shadowColor;
 
-  const NeuSearchBar(
-    this.hintText,
-    this.searchBarHeight,
-    this.searchBarWidth,
-    this.borderWidth,
-    this.shadowBlurRadius,
-    this.searchBarIcon,
-    this.shadowOffset,
-    this.borderRadius,
-    this.borderColor,
-    this.searchBarColor,
-    this.shadowColor,
-    this.hintStyle,
-    this.searchController,
+  const NeuSearchBar({
+    Key? key,
     this.keyboardType,
     this.inputStyle,
-  );
+    this.hintText,
+    this.searchController,
+    this.hintStyle,
+    this.searchBarHeight,
+    this.searchBarWidth,
+    this.borderWidth = neuBorder,
+    this.shadowBlurRadius = neuShadowBlurRadius,
+    this.searchBarIcon,
+    this.shadowOffset = neuOffset,
+    this.borderRadius,
+    this.borderColor = neuBlack,
+    this.searchBarColor,
+    this.shadowColor = neuShadow,
+  }) : super(key: key);
 
   @override
   State<NeuSearchBar> createState() => _NeuSearchBarState();
@@ -63,7 +66,7 @@ class _NeuSearchBarState extends State<NeuSearchBar> {
       child: Row(
         children: [
           SizedBox(width: 6),
-          Icon(Icons.search),
+          widget.searchBarIcon ?? Icon(Icons.search),
           SizedBox(width: 13),
           Expanded(
             child: TextField(

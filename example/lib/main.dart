@@ -72,7 +72,15 @@ class TestNeu extends StatelessWidget {
                 ),
               ),
             ),
-            
+            NeuSearchBar(
+              borderRadius: BorderRadius.circular(25),
+              searchBarIcon: const Icon(Icons.abc),
+              searchBarColor: const Color.fromARGB(255, 144, 186, 214),
+              searchBarHeight: 90,
+              searchBarWidth: 160,
+              hintStyle: const TextStyle(fontSize: 40),
+              inputStyle: const TextStyle(fontSize: 40, color: Colors.red),
+            ),
           ],
         ),
       ),

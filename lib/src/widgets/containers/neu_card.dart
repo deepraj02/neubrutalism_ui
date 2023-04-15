@@ -2,10 +2,6 @@
 import 'package:flutter/material.dart';
 
 class NeuCard extends StatefulWidget {
-  // final Image cardImage;
-
-  /// WhatsUp Nigga
-
   final Offset blurGeometry;
   final Color cardColor;
   final Color? shadowColor;
@@ -22,10 +18,8 @@ class NeuCard extends StatefulWidget {
 
   final BlurStyle shadowBlurStyle;
   final Widget? child;
-  
 
   const NeuCard(
-    //this.cardImage,
     this.blurGeometry,
     this.cardColor,
     this.shadowColor,
