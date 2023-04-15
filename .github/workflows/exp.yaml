@@ -1,18 +1,19 @@
-name: Lets See
+name: Checking the Changes
 
 on:
+  push:
+    branches: [experimantal]
   pull_request:
-    branches: [ staging ]
+    branches: [experimantal]
 
 jobs:
-  configuring-changes:
-    name: Checking Code
+  checking-pr:
+    name: Configuring
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-       
-
+      
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
@@ -20,6 +21,7 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
+          flutter-version: '3.7.5'
           channel: stable
       - name: Analyze code
         run: flutter analyze
