@@ -1,6 +1,20 @@
+# 1.0.0 (15-04-2023)
 
-
-
+## Release Highlights
+### (Contains Breaking Changes)
+- [x] docs: Update README to the Current Standard. 
+- [x] docs: Add Updated API Documentation for All NeuWidgets.
+- [x] feat: add textalign property in neuTextButton.
+- [x] feat: Add a Container for Creating Custom Widgets in Neubrutalist style
+- [x] feat: add nested widget support to provide more flexibility
+- [ ] feat: add OnHover Animation
+- [ ] feat: Add Widget Tests
+- Issues Closed
+  - [x] closes #12 
+  - [x] closes #15 - Added Nested widget Support 
+  - [x] closes #14 - Added NeuContainer
+  - [x] closes #17  -  `shadowGeometry` -> `blurGeometry` 
+  - [x]closes #13 - Added Fresh Docs 
 
 # 0.2.0 (19-03-2023)
 ## Release Highlights:

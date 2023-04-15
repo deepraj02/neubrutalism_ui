@@ -1,6 +1,6 @@
 <img src="https://user-images.githubusercontent.com/63138398/225706659-4fa396f3-fc8a-4cdc-bbd4-3600b323db97.svg" alt="Button Preview" > 
 
-  <h1 align="left">neubrutalism_ui</h1>
+  <h1 align="left">neubrutalism_ui v1.0.0</h1>
 <!-- <p>
   <a href="https://github.com/deepraj02/neubrutalism_ui">
     <img src="https://user-images.githubusercontent.com/63138398/225706659-4fa396f3-fc8a-4cdc-bbd4-3600b323db97.svg" alt="Logo" >
@@ -63,8 +63,8 @@ import 'package:neubrutalism_ui/neubrutalism_ui.dart';
 ```
 
 
-## Usage
-### NeuTextButton with Customization
+
+# What's the Difference !!! `v0.2.0` vs `v1.0.0`✨
 
 <table>
 <tr>
@@ -83,43 +83,131 @@ Neubrutalism.neuTextButton(
 ```
 </td>
 <td>
-<img  src="https://user-images.githubusercontent.com/63138398/225709552-5730bd9b-8e18-40c1-96e2-c45e7422a4c8.png"  alt="">
+
+```dart
+NeuTextButton(
+  borderColor: Colors.black,
+  shadowColor: Colors.black,
+  buttonHeight: 50,
+  buttonWidth: MediaQuery.of(context).size.width * 0.5,
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: const [
+      Padding(
+        padding: EdgeInsets.all(8.0),
+        child: Text(
+          "Hello",
+          style: TextStyle(
+              fontSize: 20, fontWeight: FontWeight.w600),
+        ),
+      ),
+    ],
+   ),
+ ),
+```
 </td>
 </tr>
 </table>
 
-### NeuImageCard with Customization
+# Usage
+
+### NeuTextButton with Customization
+
 <table>
 <tr>
 <td>
 
 ```dart
-Neubrutalism.neuImageCard(
-              cardImage: Image.network(
-                "https://bit.ly/infamous404",
-                fit: BoxFit.cover,
-              ),
-              cardHeight: 300,
-              cardWidth: 300,
-              paddingData: const EdgeInsets.all(8),
-            ),
+NeuTextButton(
+  borderColor: Colors.black,
+  shadowColor: Colors.black,
+  buttonHeight: 50,
+  buttonWidth: MediaQuery.of(context).size.width * 0.5,
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: const [
+      Padding(
+        padding: EdgeInsets.all(8.0),
+        child: Text(
+          "Hello",
+          style: TextStyle(
+              fontSize: 20, fontWeight: FontWeight.w600),
+        ),
+      ),
+    ],
+   ),
+ ),
 ```
-
 </td>
 <td>
-<img  src="https://user-images.githubusercontent.com/63138398/225916873-aba061e0-ff91-4f69-88e8-7b744654049a.jpg"  alt="">
+<img  src="https://user-images.githubusercontent.com/63138398/225709552-5730bd9b-8e18-40c1-96e2-c45e7422a4c8.png"  alt="">
 </td>
 </tr>
 </table>
 
 
+### The Neu - NeuContainer
+The Main reason behind adding this NeuContainer Widget is to allow the Developers to Create Any custom Widgets which maynot be present in the Package, thus giving them full freedom to customize their Widgets without any restrictions.
+
+<table>
+<tr>
+<td>
+
+```dart
+NeuContainer(
+    height: 160,
+    width: 250,
+    child: Column(
+      children: [
+        const Text(
+          "This is NeuContainer",
+          style: TextStyle(fontSize: 23),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Icon(
+              Icons.accessible_outlined,
+              size: 50,
+            ),
+            Icon(
+              Icons.accessible_outlined,
+              size: 50,
+            ),
+            Icon(
+              Icons.accessible_outlined,
+              size: 50,
+            ),
+            Icon(
+              Icons.accessible_outlined,
+              size: 50,
+            ),
+          ],
+        ),
+      ],
+    ),
+  ),
+```
+</td>
+<td>
+<img  src="https://user-images.githubusercontent.com/63138398/232233193-01c717a7-c1a6-4c69-b5a7-d8e39d1876eb.png"  alt="">
+</td>
+</tr>
+</table>
+
+
+
 #### Examples:
-| Component Name | Code                         | Preview                                                                                                                                     |
-| -------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| TextButton     | `Neubrutalism.neuTextButton` | <img src="https://user-images.githubusercontent.com/63138398/225709552-5730bd9b-8e18-40c1-96e2-c45e7422a4c8.png" alt="Button Preview" >     |
-| NeuImageCard   | `Neubrutalism.neuImageCard`  | <img src="https://user-images.githubusercontent.com/63138398/225916873-aba061e0-ff91-4f69-88e8-7b744654049a.jpg" alt="Image Card Preview" > |
-NeuSearchBar|Neubrutalism.neuSearchBar|<img src="https://user-images.githubusercontent.com/63138398/226177386-81a09de2-05f5-4848-8287-0fcbd20ba409.png" alt="NeuSearch Preview" > |
-NeuIconButton|Neubrutalism.neuIconButton| <img src="https://user-images.githubusercontent.com/63138398/226177407-b435f7c2-6234-4943-a33e-6dbf1a714fa6.png" alt="Neu Icon Button Preview" >|
+| Component Name | Code                         | Preview                                                                                                                                          |
+| -------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| TextButton     | `NeuTextButton` | <img src="https://user-images.githubusercontent.com/63138398/225709552-5730bd9b-8e18-40c1-96e2-c45e7422a4c8.png" alt="Button Preview" >          |
+| NeuImageCard   | `NeuImageCard`  | <img src="https://user-images.githubusercontent.com/63138398/225916873-aba061e0-ff91-4f69-88e8-7b744654049a.jpg" alt="Image Card Preview" >      |
+| NeuSearchBar   | `NeuSearchBar`    | <img src="https://user-images.githubusercontent.com/63138398/226177386-81a09de2-05f5-4848-8287-0fcbd20ba409.png" alt="NeuSearch Preview" >       |
+| NeuIconButton  | `NeuIconButton`   | <img src="https://user-images.githubusercontent.com/63138398/226177407-b435f7c2-6234-4943-a33e-6dbf1a714fa6.png" alt="Neu Icon Button Preview" > |
+| NeuContainer   | `NeuContainer`   | <img src="https://user-images.githubusercontent.com/63138398/232233193-01c717a7-c1a6-4c69-b5a7-d8e39d1876eb.png" alt="NeuContainer" > |
 
 ## Roadmap
 
