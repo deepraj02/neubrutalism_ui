@@ -38,15 +38,17 @@ class TestNeu extends StatelessWidget {
                 shadowColor: Colors.black,
                 buttonHeight: 50,
                 buttonWidth: MediaQuery.of(context).size.width * 0.5,
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Text(
                         "Hello",
                         style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.w600),
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                   ],
@@ -58,18 +60,18 @@ class TestNeu extends StatelessWidget {
               child: NeuContainer(
                 height: 160,
                 width: 250,
-                child: Column(
+                child: const Column(
                   children: [
-                    const Text(
+                    Text(
                       "This is NeuContainer",
                       style: TextStyle(fontSize: 23),
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 20,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
+                      children: [
                         Icon(
                           Icons.accessible_outlined,
                           size: 50,
@@ -82,10 +84,7 @@ class TestNeu extends StatelessWidget {
                           Icons.accessible_outlined,
                           size: 50,
                         ),
-                        Icon(
-                          Icons.accessible_outlined,
-                          size: 50,
-                        ),
+                       
                       ],
                     ),
                   ],
