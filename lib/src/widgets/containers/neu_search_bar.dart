@@ -25,6 +25,7 @@ class NeuSearchBar extends StatefulWidget {
   ///   - const neuBlurStyle = BlurStyle.solid;
   NeuSearchBar({
     Key? key,
+    this.searchBarIcon,
     this.keyboardType,
     this.inputStyle,
     this.hintText,
@@ -32,14 +33,13 @@ class NeuSearchBar extends StatefulWidget {
     this.hintStyle,
     this.searchBarHeight,
     this.searchBarWidth,
-    this.borderWidth = neuBorder,
-    this.shadowBlurRadius = neuShadowBlurRadius,
-    this.searchBarIcon,
-    this.shadowOffset = neuOffset,
+    this.borderWidth,
+    this.shadowBlurRadius,
+    this.shadowOffset,
     this.borderRadius,
-    this.borderColor = neuBlack,
+    this.borderColor,
     this.searchBarColor,
-    this.shadowColor = neuShadow,
+    this.shadowColor,
   }) : super(key: key);
 
   /// - keyboardType (optional): A TextInputType that defines the type of input expected from the user.
@@ -87,13 +87,13 @@ class NeuSearchBar extends StatefulWidget {
   ///
   /// By default, it is set to 1.
 
-  final double borderWidth;
+  final double? borderWidth;
 
   /// - shadowBlurRadius (optional): A double that defines the blur radius of the shadow of the search bar.
   ///
   /// By default, it is set to 4.
 
-  final double shadowBlurRadius;
+  final double? shadowBlurRadius;
 
   /// - searchBarIcon (optional): An Icon widget that displays an icon in the search bar.
   ///
@@ -105,7 +105,7 @@ class NeuSearchBar extends StatefulWidget {
   ///
   /// By default, it is set to (0, 0).
 
-  final Offset shadowOffset;
+  final Offset? shadowOffset;
 
   /// - borderRadius (optional): A BorderRadiusGeometry that defines the border radius of the search bar.
   ///
@@ -117,7 +117,7 @@ class NeuSearchBar extends StatefulWidget {
   ///
   /// By default, it is set to neuBlack.
 
-  final Color borderColor;
+  final Color? borderColor;
 
   /// - searchBarColor (optional): A Color that defines the color of the search bar.
   ///
@@ -129,7 +129,7 @@ class NeuSearchBar extends StatefulWidget {
   ///
   /// By default, it is set to neuShadow.
 
-  final Color shadowColor;
+  final Color? shadowColor;
 
   @override
   State<NeuSearchBar> createState() => _NeuSearchBarState();
@@ -139,20 +139,21 @@ class _NeuSearchBarState extends State<NeuSearchBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: widget.searchBarHeight,
-      width: widget.searchBarWidth,
+      height: widget.searchBarHeight ?? 60,
+      width: widget.searchBarWidth ?? 300,
       decoration: BoxDecoration(
         borderRadius: widget.borderRadius,
-        color: widget.searchBarColor,
+        color: widget.searchBarColor ?? neuSearchBarColor,
         border: Border.all(
-          color: widget.borderColor,
-          width: widget.borderWidth,
+          color: widget.borderColor ?? neuBlack,
+          width: widget.borderWidth ?? neuBorder,
         ),
         boxShadow: [
           BoxShadow(
-              color: widget.shadowColor,
-              blurRadius: widget.shadowBlurRadius,
-              offset: widget.shadowOffset),
+            color: widget.shadowColor ?? neuShadow,
+            blurRadius: widget.shadowBlurRadius ?? neuShadowBlurRadius,
+            offset: widget.shadowOffset ?? neuOffset,
+          ),
         ],
       ),
       child: Row(
