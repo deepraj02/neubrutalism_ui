@@ -18,10 +18,3 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-
-flutter:
-  fonts:
-    - family:  NeuIcons
-      fonts:
-        - asset: assets/fonts/NeuIcons.ttf
