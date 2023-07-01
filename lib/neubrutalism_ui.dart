@@ -2,5 +2,5 @@
 library neubrutalism_ui;
 
 export './src/widgets/widgets.dart';
-export 'src/neubrutalism_ui.dart';
-export 'src/icons/neu_icons.dart';
+export './src/res/package_constants.dart';
+
