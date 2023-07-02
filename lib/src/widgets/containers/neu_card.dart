@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 import 'package:neubrutalism_ui/neubrutalism_ui.dart';
 
+@Deprecated(
+    "NeuCard is Depreciated and will be discontinued in the Future Versions, Use NeuContainer Instead")
 class NeuCard extends StatefulWidget {
   /// A customizable neubrutalist-style Image-Container.
   ///
@@ -28,6 +30,7 @@ class NeuCard extends StatefulWidget {
   ///
   ///
   ///
+
   NeuCard({
     Key? key,
     this.blurGeometry = neuOffset,
@@ -119,26 +122,18 @@ class NeuCard extends StatefulWidget {
 class NeuCardState extends State<NeuCard> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-        width: widget.cardWidth,
-        height: widget.cardHeight,
-        decoration: BoxDecoration(
-          borderRadius: widget.borderRadius,
-          border: Border.all(
-            color: widget.cardBorderColor,
-            width: widget.cardBorderWidth,
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: widget.shadowColor,
-              blurRadius: widget.shadowBlurRadius,
-              offset: widget.blurGeometry,
-              blurStyle: widget.shadowBlurStyle,
-            ),
-          ],
-          color: widget.cardColor,
-        ),
-        padding: widget.paddingData,
-        child: widget.child);
+    return NeuContainer(
+      blurGeometry: widget.blurGeometry,
+      color: widget.cardColor,
+      shadowColor: widget.shadowColor,
+      borderColor: widget.cardBorderColor,
+      height: widget.cardHeight,
+      width: widget.cardWidth,
+      borderWidth: widget.cardBorderWidth,
+      shadowBlurRadius: widget.shadowBlurRadius,
+      shadowBlurStyle: widget.shadowBlurStyle,
+      child: widget.child,
+      borderRadius: widget.borderRadius,
+    );
   }
 }
