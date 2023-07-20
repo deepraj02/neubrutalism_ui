@@ -93,14 +93,14 @@ class TestNeu extends StatelessWidget {
               ),
             ),
             NeuSearchBar(
-              borderRadius: BorderRadius.circular(18),
-              searchBarIcon: const Icon(Icons.search),
-              searchBarColor: const Color.fromARGB(255, 144, 186, 214),
-              searchBarHeight: 60,
-              searchBarWidth: MediaQuery.of(context).size.width * 0.9,
-              hintStyle: const TextStyle(fontSize: 20),
-              inputStyle: const TextStyle(
-                  fontSize: 20, color: Color.fromARGB(255, 0, 0, 0)),
+              // borderRadius: BorderRadius.circular(18),
+              // searchBarIcon: const Icon(Icons.search),
+              // searchBarColor: const Color.fromARGB(255, 144, 186, 214),
+              // searchBarHeight: 60,
+              // searchBarWidth: MediaQuery.of(context).size.width * 0.9,
+              // hintStyle: const TextStyle(fontSize: 20),
+              // inputStyle: const TextStyle(
+              //     fontSize: 20, color: Color.fromARGB(255, 0, 0, 0)),
             ),
             NeuIconButton(
               icon: const Icon(Icons.abc),
