@@ -38,9 +38,9 @@ class TestNeu extends StatelessWidget {
                 shadowColor: Colors.black,
                 buttonHeight: 50,
                 buttonWidth: MediaQuery.of(context).size.width * 0.5,
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Text(
@@ -58,18 +58,18 @@ class TestNeu extends StatelessWidget {
               child: NeuContainer(
                 height: 160,
                 width: 250,
-                child: Column(
+                child: const Column(
                   children: [
-                    const Text(
+                    Text(
                       "This is NeuContainer",
                       style: TextStyle(fontSize: 23),
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 20,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
+                      children: [
                         Icon(
                           Icons.accessible_outlined,
                           size: 50,
@@ -93,15 +93,15 @@ class TestNeu extends StatelessWidget {
               ),
             ),
             NeuSearchBar(
-              // borderRadius: BorderRadius.circular(18),
-              // searchBarIcon: const Icon(Icons.search),
-              // searchBarColor: const Color.fromARGB(255, 144, 186, 214),
-              // searchBarHeight: 60,
-              // searchBarWidth: MediaQuery.of(context).size.width * 0.9,
-              // hintStyle: const TextStyle(fontSize: 20),
-              // inputStyle: const TextStyle(
-              //     fontSize: 20, color: Color.fromARGB(255, 0, 0, 0)),
-            ),
+                borderRadius: BorderRadius.circular(18),
+                searchBarIcon: const Icon(Icons.search),
+                searchBarColor: const Color.fromARGB(255, 144, 186, 214),
+                searchBarHeight: 60,
+                searchBarWidth: MediaQuery.of(context).size.width * 0.9,
+                hintStyle: const TextStyle(fontSize: 20),
+                inputStyle: const TextStyle(
+                    fontSize: 20, color: Color.fromARGB(255, 0, 0, 0)),
+                ),
             NeuIconButton(
               icon: const Icon(Icons.abc),
             ),
