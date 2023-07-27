@@ -126,7 +126,7 @@ class _NeuBottomNavState extends State<NeuBottomNav> {
         shadowColor:
             widget.isFloating ? Colors.black : Color.fromARGB(255, 0, 0, 0),
         offset: Offset(-1, -4),
-        borderRadius: BorderRadius.circular(40),
+        borderRadius: BorderRadius.circular(20),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
