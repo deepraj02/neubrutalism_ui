@@ -38,7 +38,7 @@ class NeuTextButton extends StatefulWidget {
     this.borderWidth = neuBorder,
     this.shadowBlurRadius = neuShadowBlurRadius,
     this.borderRadius,
-    this.blurGeometry = neuOffset,
+    this.offset = neuOffset,
     this.child,
   }) : super(key: key);
 
@@ -91,11 +91,11 @@ class NeuTextButton extends StatefulWidget {
   /// If not specified, the button will have a circular border radius.
   final BorderRadius? borderRadius;
 
-  /// - blurGeometry (optional) : An Offset that defines the blur offset of the button's shadow.
+  /// - offset (optional) : An Offset that defines the blur offset of the button's shadow.
   ///
   /// By default, it is set to neuOffset.
   ///
-  final Offset blurGeometry;
+  final Offset offset;
 
   /// - child (optional) : A Widget that will be placed inside the button.
   ///
@@ -124,7 +124,7 @@ class NeuTextButtonState extends State<NeuTextButton> {
             BoxShadow(
               color: widget.shadowColor,
               blurRadius: widget.shadowBlurRadius,
-              offset: widget.blurGeometry,
+              offset: widget.offset,
             ),
           ],
           color: widget.buttonColor,

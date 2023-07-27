@@ -22,7 +22,7 @@ class NeuContainer extends StatefulWidget {
 
   NeuContainer({
     Key? key,
-    this.blurGeometry = neuOffset,
+    this.offset = neuOffset,
     this.color = neuDefault1,
     this.shadowColor = neuShadow,
     this.borderColor = neuBlack,
@@ -35,11 +35,11 @@ class NeuContainer extends StatefulWidget {
     this.borderRadius,
   }) : super(key: key);
 
-  /// - blurGeometry (optional): An Offset that defines the position of the shadow of the container.
+  /// - offset (optional): An Offset that defines the position of the shadow of the container.
   ///
   /// By default, it is set to neuOffset.
 
-  final Offset blurGeometry;
+  final Offset offset;
 
   /// - color (optional): A Color that defines the background color of the container.
   ///
@@ -121,7 +121,7 @@ class NeuContainerState extends State<NeuContainer> {
           BoxShadow(
             color: widget.shadowColor,
             blurRadius: widget.shadowBlurRadius,
-            offset: widget.blurGeometry,
+            offset: widget.offset,
             blurStyle: widget.shadowBlurStyle,
           ),
         ],

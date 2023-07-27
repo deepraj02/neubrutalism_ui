@@ -34,7 +34,7 @@ class NeuIconButton extends StatefulWidget {
     this.onPressed,
     this.paddingData,
     this.borderRadius,
-    this.blurGeometry = neuOffset,
+    this.offset = neuOffset,
     this.buttonHeight = 50,
     this.shadowBlurRadius = neuShadowBlurRadius,
     this.buttonWidth = 50,
@@ -75,9 +75,9 @@ class NeuIconButton extends StatefulWidget {
   /// If not specified, the button will have a circular border radius.
   final BorderRadius? borderRadius;
 
-  /// - blurGeometry : An Offset that defines the amount and direction of the blur applied to the shadow of the card.
+  /// - offset : An Offset that defines the amount and direction of the blur applied to the shadow of the card.
   ///
-  final Offset blurGeometry;
+  final Offset offset;
 
   /// - buttonHeight (optional) : A double value that defines the height of the button.
   ///
@@ -121,7 +121,7 @@ class NeuIconButtonState extends State<NeuIconButton> {
             BoxShadow(
               color: widget.shadowColor,
               blurRadius: widget.shadowBlurRadius,
-              offset: widget.blurGeometry,
+              offset: widget.offset,
             ),
           ],
           color: widget.buttonColor,
@@ -133,7 +133,6 @@ class NeuIconButtonState extends State<NeuIconButton> {
           children: [
             widget.icon,
           ],
-          
         ),
       ),
     );
