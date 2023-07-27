@@ -109,7 +109,18 @@ class TestNeu extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: const NeuBottomNav(),
+      bottomNavigationBar: NeuBottomNav(
+        isFloating: true,
+        icons: const [
+          Icons.home,
+          Icons.account_circle_sharp,
+          Icons.search,
+        ],
+        onIconTap: (index) {
+          print("You tapped icon $index");
+        },
+        initialIconColor: Colors.black,
+      ),
     );
   }
 }
