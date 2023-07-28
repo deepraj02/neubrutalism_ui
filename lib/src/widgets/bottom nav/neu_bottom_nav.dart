@@ -1,106 +1,40 @@
-// import 'package:flutter/material.dart';
-
-// import 'package:neubrutalism_ui/src/widgets/widgets.dart';
-
-// class NeuBottomNav extends StatefulWidget {
-//   final bool isFloating;
-//   final bool autoHide;
-//   final double? floatingHeight;
-//   final double? floatingWidth;
-//   final double? stackedHeight;
-//   final double? stackedWidth;
-
-//   const NeuBottomNav({
-//     Key? key,
-//     this.isFloating = true,
-//     this.autoHide = false,
-//     this.floatingHeight,
-//     this.floatingWidth,
-//     this.stackedHeight,
-//     this.stackedWidth,
-//   }) : super(key: key);
-
-//   @override
-//   State<NeuBottomNav> createState() => _NeuBottomNavState();
-// }
-
-// class _NeuBottomNavState extends State<NeuBottomNav> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Padding(
-//       padding: widget.isFloating
-//           ? EdgeInsets.only(left: 14, right: 14, bottom: 25)
-//           : EdgeInsets.zero,
-//       child: NeuContainer(
-//         height: widget.isFloating
-//             ? MediaQuery.sizeOf(context).height / 11
-//             : MediaQuery.sizeOf(context).height / 9,
-//         borderColor:
-//             widget.isFloating ? Colors.black : const Color.fromARGB(0, 0, 0, 0),
-//         color: const Color.fromARGB(255, 254, 210, 225),
-//         shadowColor:
-//             widget.isFloating ? Colors.black : Color.fromARGB(255, 0, 0, 0),
-//         offset: Offset(-1, -4),
-//         borderRadius: BorderRadius.circular(40),
-//         child: Padding(
-//           padding: const EdgeInsets.all(8.0),
-//           child: Row(
-//             mainAxisAlignment: MainAxisAlignment.spaceAround,
-//             children: [
-//               ClipRRect(
-//                 borderRadius: BorderRadius.circular(20),
-//                 child: Container(
-//                   color: Colors.black,
-//                   width: 100,
-//                   height: 100,
-//                   child: Icon(
-//                     Icons.home,
-//                     size: 40,
-//                     color: Color.fromARGB(255, 190, 169, 224),
-//                   ),
-//                 ),
-//               ),
-//               Icon(
-//                 Icons.account_circle_sharp,
-//                 size: 40,
-//               ),
-//               Icon(
-//                 Icons.search,
-//                 size: 40,
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
-import 'package:neubrutalism_ui/src/widgets/widgets.dart';
+import '../../../neubrutalism_ui.dart';
 
 class NeuBottomNav extends StatefulWidget {
   final List<IconData> icons;
   final Function(int) onIconTap;
   final bool isFloating;
-  final bool autoHide;
+  //final bool autoHide;
   final double? floatingHeight;
   final double? floatingWidth;
   final double? stackedHeight;
   final double? stackedWidth;
   final Color initialIconColor;
+  final Color navBarColor;
+  final Color? isSelectedColor;
+  final bool autoHideOnScroll; // New parameter for auto hide
+  final ScrollController scrollController;
+  final int? autoHideDuration;
 
   const NeuBottomNav({
     Key? key,
     required this.icons,
+    required this.initialIconColor,
+    required this.navBarColor,
     required this.onIconTap,
     this.isFloating = true,
-    this.autoHide = false,
+    //this.autoHide = false,
     this.floatingHeight,
     this.floatingWidth,
     this.stackedHeight,
     this.stackedWidth,
-    required this.initialIconColor,
+    this.isSelectedColor = Colors.black,
+    required this.autoHideOnScroll,
+    required this.scrollController,
+    this.autoHideDuration = 300, // Default value is true
   }) : super(key: key);
 
   @override
@@ -109,22 +43,51 @@ class NeuBottomNav extends StatefulWidget {
 
 class _NeuBottomNavState extends State<NeuBottomNav> {
   int _currentIndex = 0;
+  bool _isVisible = true;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.autoHideOnScroll) {
+      // Attach a listener to the ScrollController to handle scrolling events
+      widget.scrollController.addListener(_handleScroll);
+    }
+  }
+
+  @override
+  void dispose() {
+    if (widget.autoHideOnScroll) {
+      // Clean up the ScrollController when the widget is disposed
+      widget.scrollController.dispose();
+    }
+    super.dispose();
+  }
+
+  void _handleScroll() {
+    // Calculate the scroll direction
+    bool scrollDown = widget.scrollController.position.userScrollDirection ==
+        ScrollDirection.forward;
+    if (scrollDown != _isVisible) {
+      setState(() {
+        // Set the visibility state based on the scroll direction
+        _isVisible = scrollDown;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    Widget bottomNavWidget = Padding(
       padding: widget.isFloating
           ? EdgeInsets.only(left: 14, right: 14, bottom: 25)
           : EdgeInsets.zero,
       child: NeuContainer(
         height: widget.isFloating
-            ? MediaQuery.sizeOf(context).height / 11
-            : MediaQuery.sizeOf(context).height / 9,
-        borderColor:
-            widget.isFloating ? Colors.black : const Color.fromARGB(0, 0, 0, 0),
-        color: const Color.fromARGB(255, 254, 210, 225),
-        shadowColor:
-            widget.isFloating ? Colors.black : Color.fromARGB(255, 0, 0, 0),
+            ? MediaQuery.of(context).size.height / 11
+            : MediaQuery.of(context).size.height / 9,
+        borderColor: widget.isFloating ? Colors.black : Colors.transparent,
+        color: widget.navBarColor,
+        shadowColor: widget.isFloating ? Colors.black : Colors.transparent,
         offset: Offset(-1, -4),
         borderRadius: BorderRadius.circular(20),
         child: Padding(
@@ -148,7 +111,7 @@ class _NeuBottomNavState extends State<NeuBottomNav> {
                           duration: Duration(milliseconds: 200),
                           curve: Curves.easeInOut,
                           color: _currentIndex == i
-                              ? Colors.black
+                              ? widget.isSelectedColor
                               : Colors.transparent,
                           width: 100,
                           height: 100,
@@ -165,7 +128,8 @@ class _NeuBottomNavState extends State<NeuBottomNav> {
                           left: 0,
                           child: AnimatedContainer(
                             duration: Duration(milliseconds: 200),
-                            curve: Curves.easeInOut,
+                            alignment: Alignment.bottomRight,
+                            curve: Curves.easeIn,
                             width: _currentIndex == i ? 0 : 100,
                             height: _currentIndex == i ? 0 : 100,
                             color: Colors.transparent,
@@ -180,5 +144,18 @@ class _NeuBottomNavState extends State<NeuBottomNav> {
         ),
       ),
     );
+
+    if (widget.autoHideOnScroll) {
+      setState(() {
+        bottomNavWidget = AnimatedOpacity(
+          opacity: _isVisible ? 1.0 : 0.0,
+          duration: Duration(milliseconds: widget.autoHideDuration!),
+          child: bottomNavWidget,
+        );
+      });
+      // Wrap the widget with AnimatedOpacity based on autoHideOnScroll parameter
+    }
+
+    return bottomNavWidget;
   }
 }
