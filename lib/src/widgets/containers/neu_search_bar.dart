@@ -138,23 +138,16 @@ class NeuSearchBar extends StatefulWidget {
 class _NeuSearchBarState extends State<NeuSearchBar> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return NeuContainer(
       height: widget.searchBarHeight,
-      width: widget.searchBarWidth,
-      decoration: BoxDecoration(
-        borderRadius: widget.borderRadius,
-        color: widget.searchBarColor,
-        border: Border.all(
-          color: widget.borderColor,
-          width: widget.borderWidth,
-        ),
-        boxShadow: [
-          BoxShadow(
-              color: widget.shadowColor,
-              blurRadius: widget.shadowBlurRadius,
-              offset: widget.shadowOffset),
-        ],
-      ),
+      width: widget.searchBarWidth??300,
+      borderRadius: widget.borderRadius??BorderRadius.circular(15),
+      color: widget.searchBarColor??const Color.fromARGB(255, 214, 140, 164),
+      borderColor: widget.borderColor,
+      borderWidth: widget.borderWidth,
+      shadowColor: widget.shadowColor,
+      shadowBlurRadius: widget.shadowBlurRadius,
+      offset: widget.shadowOffset,
       child: Row(
         children: [
           SizedBox(width: 6),
