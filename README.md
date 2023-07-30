@@ -204,7 +204,6 @@ NeuContainer(
 | Component Name | Code                         | Preview                                                                                                                                          |
 | -------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | TextButton     | `NeuTextButton` | <img src="https://user-images.githubusercontent.com/63138398/225709552-5730bd9b-8e18-40c1-96e2-c45e7422a4c8.png" alt="Button Preview" >          |
-| NeuImageCard   | `NeuImageCard`  | <img src="https://user-images.githubusercontent.com/63138398/225916873-aba061e0-ff91-4f69-88e8-7b744654049a.jpg" alt="Image Card Preview" >      |
 | NeuSearchBar   | `NeuSearchBar`    | <img src="https://user-images.githubusercontent.com/63138398/226177386-81a09de2-05f5-4848-8287-0fcbd20ba409.png" alt="NeuSearch Preview" >       |
 | NeuIconButton  | `NeuIconButton`   | <img src="https://user-images.githubusercontent.com/63138398/226177407-b435f7c2-6234-4943-a33e-6dbf1a714fa6.png" alt="Neu Icon Button Preview" > |
 | NeuContainer   | `NeuContainer`   | <img src="https://user-images.githubusercontent.com/63138398/232233193-01c717a7-c1a6-4c69-b5a7-d8e39d1876eb.png" alt="NeuContainer" > |
@@ -236,3 +235,15 @@ Distributed under the MIT License. See [LICENSE](https://github.com/deepraj02/ne
 ## Authors
 
 * **Deepraj Baidya** - *Flutter SDE Intern* - [Deepraj Baidya](https://github.com/deepraj02) - *🤔 *
+
+
+<!-- 
+
+  1. GIF Mobile Screen with all widgets
+ 2.  Indepth properties analysis
+ 3.  `NeuBottomNav` Introduction.(Application Video and Tutorial)
+ 4.  Example code refactor for README (NeuCntainer, NeuBottomNav & NeuTextButton)
+ 5.  Whats the Difference v1.0.0 vs 2.0.0 (NeuTextButton) {Contains Braking Changes}
+ 6.  Edit Authors Part.
+ 7.  
+ -->
