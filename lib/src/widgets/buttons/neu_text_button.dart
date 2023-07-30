@@ -39,7 +39,7 @@ class NeuTextButton extends StatefulWidget {
     this.shadowBlurRadius = neuShadowBlurRadius,
     this.borderRadius,
     this.offset = neuOffset,
-    this.child,
+    required this.text,
   }) : super(key: key);
 
   /// - title (optional) : A Text widget that contains the title of the button.
@@ -99,8 +99,8 @@ class NeuTextButton extends StatefulWidget {
 
   /// - child (optional) : A Widget that will be placed inside the button.
   ///
-  /// This is useful if you want to add an icon or an image to the button.
-  final Widget? child;
+  /// This Property helps to insert a Text Widget and Customize it according to your need
+  final Text text;
 
   @override
   State<NeuTextButton> createState() => NeuTextButtonState();
@@ -111,26 +111,21 @@ class NeuTextButtonState extends State<NeuTextButton> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: widget.onPressed,
-      child: Container(
-        width: widget.buttonWidth,
-        height: widget.buttonHeight,
-        decoration: BoxDecoration(
-          borderRadius: widget.borderRadius,
-          border: Border.all(
-            color: widget.borderColor,
-            width: widget.borderWidth,
+      child: NeuContainer(
+        width: widget.buttonWidth ?? 300,
+        height: widget.buttonHeight ?? 100,
+        borderRadius: widget.borderRadius,
+        color: widget.buttonColor,
+        borderColor: widget.borderColor,
+        borderWidth: widget.borderWidth,
+        shadowColor: widget.shadowColor,
+        shadowBlurRadius: widget.shadowBlurRadius,
+        offset: widget.offset,
+        child: Expanded(
+          child: Center(
+            child: widget.text,
           ),
-          boxShadow: [
-            BoxShadow(
-              color: widget.shadowColor,
-              blurRadius: widget.shadowBlurRadius,
-              offset: widget.offset,
-            ),
-          ],
-          color: widget.buttonColor,
         ),
-        child: widget.child,
-        clipBehavior: Clip.antiAlias,
       ),
     );
   }
