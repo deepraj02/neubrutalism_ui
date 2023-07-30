@@ -77,72 +77,76 @@ class _NeuBottomNavState extends State<NeuBottomNav> {
 
   @override
   Widget build(BuildContext context) {
-    Widget bottomNavWidget = Padding(
-      padding: widget.isFloating
-          ? EdgeInsets.only(left: 14, right: 14, bottom: 25)
-          : EdgeInsets.zero,
-      child: NeuContainer(
-        height: widget.isFloating
-            ? MediaQuery.of(context).size.height / 11
-            : MediaQuery.of(context).size.height / 9,
-        borderColor: widget.isFloating ? Colors.black : Colors.transparent,
-        color: widget.navBarColor,
-        shadowColor: widget.isFloating ? Colors.black : Colors.transparent,
-        offset: Offset(-1, -4),
-        borderRadius: BorderRadius.circular(20),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              for (int i = 0; i < widget.icons.length; i++)
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      _currentIndex = i;
-                    });
-                    widget.onIconTap(i);
-                  },
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Stack(
-                      children: [
-                        AnimatedContainer(
-                          duration: Duration(milliseconds: 200),
-                          curve: Curves.easeInOut,
-                          color: _currentIndex == i
-                              ? widget.isSelectedColor
-                              : Colors.transparent,
-                          width: 100,
-                          height: 100,
-                          child: Icon(
-                            widget.icons[i],
-                            size: 40,
-                            color: _currentIndex == i
-                                ? Color.fromARGB(255, 190, 169, 224)
-                                : widget.initialIconColor,
-                          ),
+    Widget bottomNavWidget = Wrap(
+      children: [
+        Padding(
+          padding: widget.isFloating
+              ? EdgeInsets.only(left: 14, right: 14, bottom: 25)
+              : EdgeInsets.zero,
+          child: NeuContainer(
+            height: widget.isFloating
+                ? MediaQuery.of(context).size.height / 11
+                : MediaQuery.of(context).size.height / 9,
+            borderColor: widget.isFloating ? Colors.black : Colors.transparent,
+            color: widget.navBarColor,
+            shadowColor: widget.isFloating ? Colors.black : Colors.transparent,
+            offset: Offset(-1, -4),
+            borderRadius: BorderRadius.circular(20),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  for (int i = 0; i < widget.icons.length; i++)
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          _currentIndex = i;
+                        });
+                        widget.onIconTap(i);
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Stack(
+                          children: [
+                            AnimatedContainer(
+                              duration: Duration(milliseconds: 200),
+                              curve: Curves.easeInOut,
+                              color: _currentIndex == i
+                                  ? widget.isSelectedColor
+                                  : Colors.transparent,
+                              width: 100,
+                              height: 100,
+                              child: Icon(
+                                widget.icons[i],
+                                size: 40,
+                                color: _currentIndex == i
+                                    ? Color.fromARGB(255, 190, 169, 224)
+                                    : widget.initialIconColor,
+                              ),
+                            ),
+                            Positioned(
+                              top: 0,
+                              left: 0,
+                              child: AnimatedContainer(
+                                duration: Duration(milliseconds: 200),
+                                alignment: Alignment.bottomRight,
+                                curve: Curves.easeIn,
+                                width: _currentIndex == i ? 0 : 100,
+                                height: _currentIndex == i ? 0 : 100,
+                                color: Colors.transparent,
+                              ),
+                            ),
+                          ],
                         ),
-                        Positioned(
-                          top: 0,
-                          left: 0,
-                          child: AnimatedContainer(
-                            duration: Duration(milliseconds: 200),
-                            alignment: Alignment.bottomRight,
-                            curve: Curves.easeIn,
-                            width: _currentIndex == i ? 0 : 100,
-                            height: _currentIndex == i ? 0 : 100,
-                            color: Colors.transparent,
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
-                  ),
-                ),
-            ],
+                ],
+              ),
+            ),
           ),
         ),
-      ),
+      ],
     );
 
     if (widget.autoHideOnScroll) {
