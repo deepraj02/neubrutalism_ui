@@ -1,10 +1,6 @@
 <img src="https://user-images.githubusercontent.com/63138398/225706659-4fa396f3-fc8a-4cdc-bbd4-3600b323db97.svg" alt="Button Preview" > 
 
   <h1 align="left">neubrutalism_ui v1.0.0</h1>
-<!-- <p>
-  <a href="https://github.com/deepraj02/neubrutalism_ui">
-    <img src="https://user-images.githubusercontent.com/63138398/225706659-4fa396f3-fc8a-4cdc-bbd4-3600b323db97.svg" alt="Logo" >
-  </a> -->
 <p align="center">
 <a href="https://github.com/deepraj02/neubrutalism_ui/issues">Request Feature</a>
 <br>
@@ -63,7 +59,23 @@ import 'package:neubrutalism_ui/neubrutalism_ui.dart';
 ```
 
 
+<!-- Whats the differnect v1.0.0 vs 2.0.0 -->
 
+<!-- TODO: Replace v 0.2.0 with this.
+v2.0.0 
+NeuTextButton(
+                  text: const Text(
+                    "Hello ",
+                    style: TextStyle(
+                      fontSize: 40,
+                    ),
+                  ),
+
+1 . Replaced Widget `child` with `text` (Text) {Breaking Change}.
+
+2. Fixed the Initial UI of the Widget. (Predefined some properties which  are customizeable).
+
+ -->
 # What's the Difference !!! `v0.2.0` vs `v1.0.0`✨
 
 <table>
@@ -84,6 +96,7 @@ Neubrutalism.neuTextButton(
 </td>
 <td>
 
+<!-- V 1.0.0 -->
 ```dart
 NeuTextButton(
   borderColor: Colors.black,
@@ -117,6 +130,7 @@ NeuTextButton(
 <tr>
 <td>
 
+<!--TODO: Responsive on both sides (Use the Newer Code v2.0.0) -->
 ```dart
 NeuTextButton(
   borderColor: Colors.black,
@@ -153,6 +167,8 @@ The Main reason behind adding this NeuContainer Widget is to allow the Developer
 <tr>
 <td>
 
+
+<!-- TODO: Iska Kal dunga -->
 ```dart
 NeuContainer(
     height: 160,
@@ -198,7 +214,7 @@ NeuContainer(
 </tr>
 </table>
 
-
+<!-- TODO: Fix : Make it responsive -->
 
 #### Examples:
 | Component Name | Code                         | Preview                                                                                                                                          |
@@ -233,7 +249,7 @@ Contributions are what make the open source community such an amazing place to b
 Distributed under the MIT License. See [LICENSE](https://github.com/deepraj02/neubrutalism_ui/blob/main/LICENSE.md) for more information.
 
 ## Authors
-
+<!-- TODO: Add name -->
 * **Deepraj Baidya** - *Flutter SDE Intern* - [Deepraj Baidya](https://github.com/deepraj02) - *🤔 *
 
 
