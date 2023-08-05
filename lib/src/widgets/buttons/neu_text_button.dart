@@ -121,10 +121,8 @@ class NeuTextButtonState extends State<NeuTextButton> {
         shadowColor: widget.shadowColor,
         shadowBlurRadius: widget.shadowBlurRadius,
         offset: widget.offset,
-        child: Expanded(
-          child: Center(
-            child: widget.text,
-          ),
+        child: Center(
+          child: widget.text,
         ),
       ),
     );
