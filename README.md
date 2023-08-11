@@ -30,35 +30,6 @@ Whether you're a beginner or an experienced developer, Neubrutalism UI makes it 
 ## Built With [Flutter](https://flutter.dev/) 💙
 
 ## Getting Started
-
-
-### Prerequisites
-
-To use the "neubrutalism_ui" package, you will need to have the following installed:
-
-Flutter SDK 
-
-If you do not have Flutter installed on your system, you can download it from the official Flutter website: https://flutter.dev/docs/get-started/install
-
-### Installation
-
-- Add the "neubrutalism_ui" package to your project's dependencies. You can do this by adding the following line to your pubspec.yaml file:
-
-``` yaml
-dependencies:
-  neubrutalism_ui: <latest-version>
-```
-Then, run flutter pub get in your terminal to download the package.
-
-
-- Import the "neubrutalism_ui" package in your Dart code:
-
-
-``` dart
-import 'package:neubrutalism_ui/neubrutalism_ui.dart';
-```
-
-
 <!-- Whats the differnect v1.0.0 vs 2.0.0 -->
 
 <!-- TODO: Replace v 0.2.0 with this.
@@ -73,30 +44,17 @@ NeuTextButton(
 
 1 . Replaced Widget `child` with `text` (Text) {Breaking Change}.
 
-2. Fixed the Initial UI of the Widget. (Predefined some properties which  are customizeable).
+1. Fixed the Initial UI of the Widget. (Predefined some properties which  are customizeable).
 
  -->
-# What's the Difference !!! `v0.2.0` vs `v1.0.0`✨
+# What's the Difference !!! `v1.0.0` vs `v2.0.0`✨
+
+Includes Breaking Changes (Refer to Changelog),
 
 <table>
 <tr>
 <td>
 
-```dart
-Neubrutalism.neuTextButton(
-              buttonColor: Colors.teal,
-              buttonHeight: 60,
-              borderWidth: 2,
-              onPressed: () {
-                print("object");
-              },
-              buttonWidth: 300,
-            ),
-```
-</td>
-<td>
-
-<!-- V 1.0.0 -->
 ```dart
 NeuTextButton(
   borderColor: Colors.black,
@@ -119,12 +77,29 @@ NeuTextButton(
  ),
 ```
 </td>
+<td>
+
+<!-- V 1.0.0 -->
+```dart
+NeuTextButton(
+                  text: const Text(
+                    "Hello ",
+                    style: TextStyle(
+                      fontSize: 40,
+                    ),
+                  ),
+                  onPressed: () {
+                    debugPrint("Helloo ");
+                  },
+                ),
+```
+</td>
 </tr>
 </table>
 
 # Usage
 
-### NeuTextButton with Customization
+### NeuTextButton with Customization (v2.0.0)
 
 <table>
 <tr>
@@ -133,34 +108,26 @@ NeuTextButton(
 <!--TODO: Responsive on both sides (Use the Newer Code v2.0.0) -->
 ```dart
 NeuTextButton(
-  borderColor: Colors.black,
-  shadowColor: Colors.black,
-  buttonHeight: 50,
-  buttonWidth: MediaQuery.of(context).size.width * 0.5,
-  child: Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: const [
-      Padding(
-        padding: EdgeInsets.all(8.0),
-        child: Text(
-          "Hello",
-          style: TextStyle(
-              fontSize: 20, fontWeight: FontWeight.w600),
-        ),
-      ),
-    ],
-   ),
- ),
+                  text: const Text(
+                    "Hello ",
+                    style: TextStyle(
+                      fontSize: 40,
+                    ),
+                  ),
+                  onPressed: () {
+                    debugPrint("Helloo ");
+                  },
+                ),
 ```
 </td>
 <td>
-<img  src="https://user-images.githubusercontent.com/63138398/225709552-5730bd9b-8e18-40c1-96e2-c45e7422a4c8.png"  alt="">
+<img  src="https://user-images.githubusercontent.com/63138398/260050262-49206b74-1e74-4c07-8753-ecda4e512f42.png"  alt="">
 </td>
 </tr>
 </table>
 
 
-### The Neu - NeuContainer
+### The Neu - NeuContainer 
 The Main reason behind adding this NeuContainer Widget is to allow the Developers to Create Any custom Widgets which maynot be present in the Package, thus giving them full freedom to customize their Widgets without any restrictions.
 
 <table>
