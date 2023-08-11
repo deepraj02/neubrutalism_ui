@@ -1,4 +1,5 @@
 import 'package:example/another_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:neubrutalism_ui/neubrutalism_ui.dart';
 
@@ -52,13 +53,27 @@ class _TestNeuState extends State<TestNeu> {
                       fontSize: 40,
                     ),
                   ),
+                  onPressed: () {
+                    debugPrint("Helloo ");
+                  },
 
                   //buttonWidth: 300,
                   //buttonHeight: 100,
                 ),
-                NeuSearchBar(
-                  
-                )
+
+                const SizedBox(
+                  height: 50,
+                ),
+
+                NeuSearchBar(),
+
+                const SizedBox(
+                  height: 50,
+                ),
+
+                CupertinoButton.filled(
+                    child: const Text("Hello"), onPressed: () {})
+                //NeuSearchBar()
               ],
             ),
           )
@@ -110,11 +125,22 @@ class _TestNeuState extends State<TestNeu> {
           Icons.person_2_rounded,
         ],
         onIconTap: (index) {
-          debugPrint("You tapped icon $index");
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (builder) {
+                return const AnotherPage();
+              },
+            ),
+          );
         },
+
+        
         initialIconColor: Colors.black,
       ),
+      
     );
+
   }
 
   void onT(int index) {
