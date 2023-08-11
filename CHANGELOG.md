@@ -1,3 +1,13 @@
+# 2.0.0 (20-04-2023)
+
+- [x]  `NeuBottomNav` -UI styling done and dusted (Navigation Part Under Development RN).
+- [x] Migrated to NeuContainer instead of Material Container in widgets like `NeuTextButton` & `NeuSearchBar`.
+- [x] Changed the Initial UI Lookup Styling for widgets like `NeuTextButton` & `NeuSearchBar`.
+- [x] `NeuCard` is depriciated now and will be Removed in the Following Versions. (For better Styling Freedom use `NeuContainer` instead).
+- [x] `NeuTextButton` contains some breaking changes as the `Widget` child properties is removed completely and replaced with `Text` Property focusing only on keeping Texts in the `NeuTextButton`. (For Complex UI design choose `NeuContainer`).
+- [x] `NeuBottomNav` requires adding some additional `Scaffold` and `SafeArea` flags as of now. 
+- [x] `example/main.dart` revamp to contain all NeuWidgets.
+
 # 1.0.0 (15-04-2023)
 
 ## Release Highlights
