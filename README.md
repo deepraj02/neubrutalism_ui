@@ -236,3 +236,8 @@ Distributed under the MIT License. See [LICENSE](https://github.com/deepraj02/ne
 ## Authors
 
 * **Deepraj Baidya** - *Flutter SDE Intern* - [Deepraj Baidya](https://github.com/deepraj02) - *🤔 *
+
+
+# Todos
+- [] Docs
+- [] Gifs
