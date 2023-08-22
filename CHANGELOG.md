@@ -7,6 +7,7 @@
 - [x] `NeuTextButton` contains some breaking changes as the `Widget` child properties is removed completely and replaced with `Text` Property focusing only on keeping Texts in the `NeuTextButton`. (For Complex UI design choose `NeuContainer`).
 - [x] `NeuBottomNav` requires adding some additional `Scaffold` and `SafeArea` flags as of now. 
 - [x] `example/main.dart` revamp to contain all NeuWidgets.
+- [x] OnPressed animation added in v2.0.0 for `NeuTextButton` & `NeuIconButton`
 
 # 1.0.0 (15-04-2023)
 
