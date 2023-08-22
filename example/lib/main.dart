@@ -56,6 +56,7 @@ class _TestNeuState extends State<TestNeu> {
                   onPressed: () {
                     debugPrint("Helloo ");
                   },
+                  animate: true,
 
                   //buttonWidth: 300,
                   //buttonHeight: 100,
@@ -134,13 +135,9 @@ class _TestNeuState extends State<TestNeu> {
             ),
           );
         },
-
-        
         initialIconColor: Colors.black,
       ),
-      
     );
-
   }
 
   void onT(int index) {
