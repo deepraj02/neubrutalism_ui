@@ -39,8 +39,11 @@ class NeuTextButton extends StatefulWidget {
     this.borderRadius,
     this.offset = neuOffset,
     required this.text,
+
     required this.animate,
     this.animationDuration = 100,
+
+
   }) : super(key: key);
 
   /// - buttonColor (optional) : A Color that defines the color of the button.
@@ -94,7 +97,9 @@ class NeuTextButton extends StatefulWidget {
   ///
   final Offset offset;
 
-  /// - child (required) : A Widget that will be placed inside the button.
+
+  /// - Text (required) : A Widget that will be placed inside the button.
+
   ///
   /// This Property helps to insert a Text Widget and Customize it according to your need
   final Text text;
@@ -137,7 +142,9 @@ class NeuTextButtonState extends State<NeuTextButton>
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+
+    return InkWell(
+
       onTap: () {
         if (widget.animate) {
           _controller.forward().then((value) => _controller.reverse());
