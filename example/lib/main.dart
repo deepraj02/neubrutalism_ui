@@ -1,5 +1,4 @@
 import 'package:example/another_page.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:neubrutalism_ui/neubrutalism_ui.dart';
 
@@ -47,6 +46,7 @@ class _TestNeuState extends State<TestNeu> {
             child: Column(
               children: [
                 NeuTextButton(
+                  animate: true,
                   text: const Text(
                     "Hello ",
                     style: TextStyle(
@@ -56,7 +56,7 @@ class _TestNeuState extends State<TestNeu> {
                   onPressed: () {
                     debugPrint("Helloo ");
                   },
-                  animate: true,
+                  
 
                   //buttonWidth: 300,
                   //buttonHeight: 100,
@@ -65,15 +65,37 @@ class _TestNeuState extends State<TestNeu> {
                 const SizedBox(
                   height: 50,
                 ),
-
                 NeuSearchBar(),
-
                 const SizedBox(
                   height: 50,
                 ),
 
-                CupertinoButton.filled(
-                    child: const Text("Hello"), onPressed: () {})
+                NeuContainer(
+                    height: 100,
+                    width: 300,
+                    color: Colors.white,
+                    offset: const Offset(5, 5),
+                    borderWidth: 1,
+                    borderRadius: BorderRadius.circular(8),
+                    child: const Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        FlutterLogo(
+                          size: 100,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("Maa Ka Bhosda"),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text("data")
+                          ],
+                        ),
+                      ],
+                    )),
+
                 //NeuSearchBar()
               ],
             ),
@@ -117,7 +139,7 @@ class _TestNeuState extends State<TestNeu> {
           ),
       bottomNavigationBar: NeuBottomNav(
         navBarColor: const Color.fromARGB(255, 254, 210, 225),
-        isFloating: false,
+        isFloating: true,
         autoHideOnScroll: true,
         scrollController: _controller,
         icons: const [
