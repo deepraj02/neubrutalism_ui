@@ -28,7 +28,6 @@ class NeuTextButton extends StatefulWidget {
 
   NeuTextButton({
     Key? key,
-    this.title,
     this.buttonColor = neuDefault1,
     this.shadowColor = neuShadow,
     this.borderColor = neuBlack,
@@ -41,10 +40,6 @@ class NeuTextButton extends StatefulWidget {
     this.offset = neuOffset,
     required this.text,
   }) : super(key: key);
-
-  /// - title (optional) : A Text widget that contains the title of the button.
-  ///
-  final Text? title;
 
   /// - buttonColor (optional) : A Color that defines the color of the button.
   ///
@@ -97,10 +92,11 @@ class NeuTextButton extends StatefulWidget {
   ///
   final Offset offset;
 
-  /// - child (optional) : A Widget that will be placed inside the button.
+  /// - child (required) : A Widget that will be placed inside the button.
   ///
   /// This Property helps to insert a Text Widget and Customize it according to your need
   final Text text;
+
 
   @override
   State<NeuTextButton> createState() => NeuTextButtonState();
