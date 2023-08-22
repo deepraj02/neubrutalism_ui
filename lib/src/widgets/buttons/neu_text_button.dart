@@ -39,6 +39,8 @@ class NeuTextButton extends StatefulWidget {
     this.borderRadius,
     this.offset = neuOffset,
     required this.text,
+    required this.animate,
+    this.animationDuration = 100,
   }) : super(key: key);
 
   /// - buttonColor (optional) : A Color that defines the color of the button.
@@ -97,30 +99,72 @@ class NeuTextButton extends StatefulWidget {
   /// This Property helps to insert a Text Widget and Customize it according to your need
   final Text text;
 
+  /// animate (required) : Boolean Property to toggle the Animation property of the Button Widget.
+  ///
+  /// Creates a smooth pressing animation beginning from Offset(0,0) to the defined [`offset`] property. (Default offset value is (4,4))
+  final bool animate;
+
+  ///animationDuration (optional) : An Int. defining the Animation Duration in milliseconds.
+  ///
+  ///Default value is 100ms
+  final int animationDuration;
 
   @override
   State<NeuTextButton> createState() => NeuTextButtonState();
 }
 
-class NeuTextButtonState extends State<NeuTextButton> {
+class NeuTextButtonState extends State<NeuTextButton>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<Offset> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: widget.animationDuration),
+    );
+    _animation = Tween<Offset>(begin: const Offset(0, 0), end: widget.offset)
+        .animate(_controller);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: widget.onPressed,
-      child: NeuContainer(
-        width: widget.buttonWidth ?? 300,
-        height: widget.buttonHeight ?? 100,
-        borderRadius: widget.borderRadius,
-        color: widget.buttonColor,
-        borderColor: widget.borderColor,
-        borderWidth: widget.borderWidth,
-        shadowColor: widget.shadowColor,
-        shadowBlurRadius: widget.shadowBlurRadius,
-        offset: widget.offset,
-        child: Center(
-          child: widget.text,
-        ),
-      ),
+      onTap: () {
+        if (widget.animate) {
+          _controller.forward().then((value) => _controller.reverse());
+        }
+        if (widget.onPressed != null) widget.onPressed!();
+      },
+      child: AnimatedBuilder(
+          animation: _animation,
+          builder: (context, l) {
+            return Transform.translate(
+              offset: _animation.value,
+              child: NeuContainer(
+                width: widget.buttonWidth ?? 300,
+                height: widget.buttonHeight ?? 100,
+                borderRadius: widget.borderRadius,
+                color: widget.buttonColor,
+                borderColor: widget.borderColor,
+                borderWidth: widget.borderWidth,
+                shadowColor: widget.shadowColor,
+                shadowBlurRadius: widget.shadowBlurRadius,
+                offset: widget.offset,
+                child: Center(
+                  child: widget.text,
+                ),
+              ),
+            );
+          }),
     );
   }
 }
