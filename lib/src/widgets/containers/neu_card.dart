@@ -30,7 +30,7 @@ class NeuCard extends StatefulWidget {
   ///
   NeuCard({
     Key? key,
-    this.blurGeometry = neuOffset,
+    this.offset = neuOffset,
     this.cardColor,
     this.shadowColor = neuShadow,
     this.cardBorderColor = neuBlack,
@@ -46,9 +46,9 @@ class NeuCard extends StatefulWidget {
     this.borderRadius,
   }) : super(key: key);
 
-  /// - blurGeometry : An Offset that defines the amount and direction of the blur applied to the shadow of the card.
+  /// - offset : An Offset that defines the amount and direction of the blur applied to the shadow of the card.
   ///
-  final Offset blurGeometry;
+  final Offset offset;
 
   /// - cardColor (optional) : A Color that defines the background color of the card.
   ///
@@ -132,7 +132,7 @@ class NeuCardState extends State<NeuCard> {
             BoxShadow(
               color: widget.shadowColor,
               blurRadius: widget.shadowBlurRadius,
-              offset: widget.blurGeometry,
+              offset: widget.offset,
               blurStyle: widget.shadowBlurStyle,
             ),
           ],

@@ -1,10 +1,6 @@
 <img src="https://user-images.githubusercontent.com/63138398/225706659-4fa396f3-fc8a-4cdc-bbd4-3600b323db97.svg" alt="Button Preview" > 
 
   <h1 align="left">neubrutalism_ui v1.0.0</h1>
-<!-- <p>
-  <a href="https://github.com/deepraj02/neubrutalism_ui">
-    <img src="https://user-images.githubusercontent.com/63138398/225706659-4fa396f3-fc8a-4cdc-bbd4-3600b323db97.svg" alt="Logo" >
-  </a> -->
 <p align="center">
 <a href="https://github.com/deepraj02/neubrutalism_ui/issues">Request Feature</a>
 <br>
@@ -34,54 +30,29 @@ Whether you're a beginner or an experienced developer, Neubrutalism UI makes it 
 ## Built With [Flutter](https://flutter.dev/) 💙
 
 ## Getting Started
+<!-- Whats the differnect v1.0.0 vs 2.0.0 -->
 
+<!-- TODO: Replace v 0.2.0 with this.
+v2.0.0 
+NeuTextButton(
+                  text: const Text(
+                    "Hello ",
+                    style: TextStyle(
+                      fontSize: 40,
+                    ),
+                  ),
 
-### Prerequisites
+1 . Replaced Widget `child` with `text` (Text) {Breaking Change}.
 
-To use the "neubrutalism_ui" package, you will need to have the following installed:
+1. Fixed the Initial UI of the Widget. (Predefined some properties which  are customizeable).
 
-Flutter SDK 
+ -->
+# What's the Difference !!! `v1.0.0` vs `v2.0.0`✨
 
-If you do not have Flutter installed on your system, you can download it from the official Flutter website: https://flutter.dev/docs/get-started/install
-
-### Installation
-
-- Add the "neubrutalism_ui" package to your project's dependencies. You can do this by adding the following line to your pubspec.yaml file:
-
-``` yaml
-dependencies:
-  neubrutalism_ui: <latest-version>
-```
-Then, run flutter pub get in your terminal to download the package.
-
-
-- Import the "neubrutalism_ui" package in your Dart code:
-
-
-``` dart
-import 'package:neubrutalism_ui/neubrutalism_ui.dart';
-```
-
-
-
-# What's the Difference !!! `v0.2.0` vs `v1.0.0`✨
+Includes Breaking Changes (Refer to Changelog),
 
 <table>
 <tr>
-<td>
-
-```dart
-Neubrutalism.neuTextButton(
-              buttonColor: Colors.teal,
-              buttonHeight: 60,
-              borderWidth: 2,
-              onPressed: () {
-                print("object");
-              },
-              buttonWidth: 300,
-            ),
-```
-</td>
 <td>
 
 ```dart
@@ -104,6 +75,23 @@ NeuTextButton(
     ],
    ),
  ),
+```
+</td>
+<td>
+
+<!-- V 1.0.0 -->
+```dart
+NeuTextButton(
+                  text: const Text(
+                    "Hello ",
+                    style: TextStyle(
+                      fontSize: 40,
+                    ),
+                  ),
+                  onPressed: () {
+                    debugPrint("Helloo ");
+                  },
+                ),
 ```
 </td>
 </tr>
@@ -111,48 +99,43 @@ NeuTextButton(
 
 # Usage
 
-### NeuTextButton with Customization
+### NeuTextButton with Customization (v2.0.0)
 
 <table>
 <tr>
 <td>
 
+<!--TODO: Responsive on both sides (Use the Newer Code v2.0.0) -->
 ```dart
 NeuTextButton(
-  borderColor: Colors.black,
-  shadowColor: Colors.black,
-  buttonHeight: 50,
-  buttonWidth: MediaQuery.of(context).size.width * 0.5,
-  child: Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: const [
-      Padding(
-        padding: EdgeInsets.all(8.0),
-        child: Text(
-          "Hello",
-          style: TextStyle(
-              fontSize: 20, fontWeight: FontWeight.w600),
-        ),
-      ),
-    ],
-   ),
- ),
+                  text: const Text(
+                    "Hello ",
+                    style: TextStyle(
+                      fontSize: 40,
+                    ),
+                  ),
+                  onPressed: () {
+                    debugPrint("Helloo ");
+                  },
+                ),
 ```
 </td>
 <td>
-<img  src="https://user-images.githubusercontent.com/63138398/225709552-5730bd9b-8e18-40c1-96e2-c45e7422a4c8.png"  alt="">
+<img  src="https://user-images.githubusercontent.com/63138398/260050262-49206b74-1e74-4c07-8753-ecda4e512f42.png"  alt="">
 </td>
 </tr>
 </table>
 
 
-### The Neu - NeuContainer
+### The Neu - NeuContainer 
 The Main reason behind adding this NeuContainer Widget is to allow the Developers to Create Any custom Widgets which maynot be present in the Package, thus giving them full freedom to customize their Widgets without any restrictions.
 
 <table>
 <tr>
 <td>
 
+
+<!-- TODO: Iska Kal dunga -->
 ```dart
 NeuContainer(
     height: 160,
@@ -198,13 +181,12 @@ NeuContainer(
 </tr>
 </table>
 
-
+<!-- TODO: Fix : Make it responsive -->
 
 #### Examples:
 | Component Name | Code                         | Preview                                                                                                                                          |
 | -------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | TextButton     | `NeuTextButton` | <img src="https://user-images.githubusercontent.com/63138398/225709552-5730bd9b-8e18-40c1-96e2-c45e7422a4c8.png" alt="Button Preview" >          |
-| NeuImageCard   | `NeuImageCard`  | <img src="https://user-images.githubusercontent.com/63138398/225916873-aba061e0-ff91-4f69-88e8-7b744654049a.jpg" alt="Image Card Preview" >      |
 | NeuSearchBar   | `NeuSearchBar`    | <img src="https://user-images.githubusercontent.com/63138398/226177386-81a09de2-05f5-4848-8287-0fcbd20ba409.png" alt="NeuSearch Preview" >       |
 | NeuIconButton  | `NeuIconButton`   | <img src="https://user-images.githubusercontent.com/63138398/226177407-b435f7c2-6234-4943-a33e-6dbf1a714fa6.png" alt="Neu Icon Button Preview" > |
 | NeuContainer   | `NeuContainer`   | <img src="https://user-images.githubusercontent.com/63138398/232233193-01c717a7-c1a6-4c69-b5a7-d8e39d1876eb.png" alt="NeuContainer" > |
@@ -234,5 +216,17 @@ Contributions are what make the open source community such an amazing place to b
 Distributed under the MIT License. See [LICENSE](https://github.com/deepraj02/neubrutalism_ui/blob/main/LICENSE.md) for more information.
 
 ## Authors
-
+<!-- TODO: Add name -->
 * **Deepraj Baidya** - *Flutter SDE Intern* - [Deepraj Baidya](https://github.com/deepraj02) - *🤔 *
+
+
+<!-- 
+
+  1. GIF Mobile Screen with all widgets
+ 2.  Indepth properties analysis
+ 3.  `NeuBottomNav` Introduction.(Application Video and Tutorial)
+ 4.  Example code refactor for README (NeuCntainer, NeuBottomNav & NeuTextButton)
+ 5.  Whats the Difference v1.0.0 vs 2.0.0 (NeuTextButton) {Contains Braking Changes}
+ 6.  Edit Authors Part.
+ 7.  
+ -->

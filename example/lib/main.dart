@@ -1,3 +1,4 @@
+import 'package:example/another_page.dart';
 import 'package:flutter/material.dart';
 import 'package:neubrutalism_ui/neubrutalism_ui.dart';
 
@@ -9,105 +10,193 @@ class Main extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: TestNeu(),
+      initialRoute: '/',
+      routes: {
+        //'/': (context) => TestNeu(),
+        '/a': (context) => const AnotherPage()
+      },
+
+      // home: TestNeu(),
+      home: const TestNeu(),
     );
   }
 }
 
-class TestNeu extends StatelessWidget {
-  const TestNeu({
-    super.key,
-  });
+class TestNeu extends StatefulWidget {
+  const TestNeu({Key? key}) : super(key: key);
+
+  @override
+  State<TestNeu> createState() => _TestNeuState();
+}
+
+class _TestNeuState extends State<TestNeu> {
+  final ScrollController _controller = ScrollController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 190, 169, 224),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          //crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(100.0),
-              child: NeuTextButton(
-                buttonColor: const Color.fromARGB(255, 208, 238, 235),
-                borderColor: Colors.black,
-                shadowColor: Colors.black,
-                buttonHeight: 50,
-                buttonWidth: MediaQuery.of(context).size.width * 0.5,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Text(
-                        "Hello",
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.w600),
-                      ),
+      resizeToAvoidBottomInset: false,
+      extendBody: true,
+      backgroundColor: const Color(0xFFE1FFC9),
+      body: SafeArea(
+          bottom: false,
+          child: Center(
+            child: Column(
+              children: [
+                NeuTextButton(
+                  enableAnimation: true,
+                  text: const Text(
+                    "Hello ",
+                    style: TextStyle(
+                      fontSize: 40,
                     ),
-                  ],
+                  ),
+                  onPressed: () {
+                    debugPrint("Helloo ");
+                  },
+
+                  //buttonWidth: 300,
+                  //buttonHeight: 100,
                 ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: NeuContainer(
-                height: 160,
-                width: 250,
-                child: Column(
-                  children: [
-                    const Text(
-                      "This is NeuContainer",
-                      style: TextStyle(fontSize: 23),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Icon(
-                          Icons.accessible_outlined,
-                          size: 50,
+
+                const SizedBox(
+                  height: 50,
+                ),
+                NeuSearchBar(),
+                const SizedBox(
+                  height: 50,
+                ),
+
+                NeuContainer(
+                    height: 100,
+                    width: 300,
+                    color: Colors.white,
+                    offset: const Offset(5, 5),
+                    borderWidth: 1,
+                    borderRadius: BorderRadius.circular(8),
+                    child: const Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        FlutterLogo(
+                          size: 100,
                         ),
-                        Icon(
-                          Icons.accessible_outlined,
-                          size: 50,
-                        ),
-                        Icon(
-                          Icons.accessible_outlined,
-                          size: 50,
-                        ),
-                        Icon(
-                          Icons.accessible_outlined,
-                          size: 50,
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("Maa Ka Bhosda"),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text("data")
+                          ],
                         ),
                       ],
-                    ),
-                  ],
+                    )),
+                const SizedBox(
+                  height: 40,
                 ),
+                NeuIconButton(
+                  buttonHeight: 150,
+                  buttonWidth: 150,
+                  icon: const Icon(
+                    Icons.dangerous,
+                    size: 90,
+                  ),
+                  offset: const Offset(10, 10),
+                  enableAnimation: true,
+                )
+
+                //NeuSearchBar()
+              ],
+            ),
+          )
+          // child: GridView.builder(
+          //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          //     crossAxisCount: 2,
+          //     crossAxisSpacing: 10,
+          //     mainAxisSpacing: 10,
+          //   ),
+          //   controller: _controller,
+          //   itemCount:
+          //       10, // Replace this with the number of containers you want to display
+          //   itemBuilder: (context, index) {
+          //     return Padding(
+          //       padding: const EdgeInsets.all(8.0),
+          //       child: NeuContainer(
+          //         height: MediaQuery.of(context).size.height / 4,
+          //         width: MediaQuery.of(context).size.width / 2,
+          //         offset: const Offset(-4, -2),
+          //         borderRadius: BorderRadius.circular(16),
+          //         color: Colors.white,
+          //         borderColor: Colors.black,
+          //         child: const Column(
+          //           children: [
+          //             Padding(
+          //               padding: EdgeInsets.only(top: 80.0),
+          //               child: Text(
+          //                 "",
+          //                 style: TextStyle(
+          //                   fontSize: 50,
+          //                 ),
+          //               ),
+          //             ),
+          //           ],
+          //         ),
+          //       ),
+          //     );
+          //   },
+          // ),
+          ),
+      bottomNavigationBar: NeuBottomNav(
+        navBarColor: const Color.fromARGB(255, 254, 210, 225),
+        isFloating: true,
+        autoHideOnScroll: true,
+        scrollController: _controller,
+        icons: const [
+          Icons.home,
+          Icons.shopping_cart_checkout,
+          Icons.person_2_rounded,
+        ],
+        onIconTap: (index) {
+          if (index == 0) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (builder) {
+                  return const AnotherPage();
+                },
               ),
-            ),
-            NeuSearchBar(
-              borderRadius: BorderRadius.circular(18),
-              searchBarIcon: const Icon(Icons.search),
-              searchBarColor: const Color.fromARGB(255, 144, 186, 214),
-              searchBarHeight: 60,
-              searchBarWidth: MediaQuery.of(context).size.width * 0.9,
-              hintStyle: const TextStyle(fontSize: 20),
-              inputStyle: const TextStyle(
-                  fontSize: 20, color: Color.fromARGB(255, 0, 0, 0)),
-            ),
-            NeuIconButton(
-              icon: const Icon(Icons.abc),
-            ),
-          ],
-        ),
+            );
+          }
+          if (index == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (builder) {
+                  return const AnotherPage();
+                },
+              ),
+            );
+          }
+          if (index == 3) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (builder) {
+                  return const AnotherPage();
+                },
+              ),
+            );
+          }
+        },
+        initialIconColor: Colors.black,
       ),
     );
+  }
+
+  void onT(int index) {
+    setState(() {});
   }
 }

@@ -1,3 +1,34 @@
+# 2.0.0 (01-09-2023)
+
+## Release Highlights
+2.0.0 (Feature Update) will focused on adding more UI components and will reduce the complexity of creating Custom UI from this Package.
+New Widgets  `NeuBottomNav` will also be included along with other bug fixes and Performance improvements and Improved code for better testability
+### Breaking Changes
+- [x] `NeuCard` is depriciated now and will be Removed in the Following Versions. (For better Styling Freedom use `NeuContainer` instead).
+- [x] `NeuTextButton` contains some breaking changes as the `Widget` child properties is removed completely and replaced with `Text` Property focusing only on keeping Texts in the `NeuTextButton`. (For Complex UI design choose `NeuContainer`).
+- [x] `NeuBottomNav` requires adding some additional `Scaffold` and `SafeArea` flags as of now. 
+- [x] Removed the property `paddingData` from `NeuIconButton`
+### Changes
+- [x] Migrated to NeuContainer instead of Material Container in all widgets of this Package `NeuTextButton`  `NeuSearchBar` & `NeuIconButton`.
+- [x] Changed the Initial UI Lookup Styling for widgets like `NeuTextButton` & `NeuSearchBar`.
+### Features
+- [x]  `NeuBottomNav` -UI styling done and dusted (Navigation Part Under Development RN).
+- [x] OnPressed animation added in v2.0.0 for `NeuTextButton` & `NeuIconButton` (accessable by the `enableAniamtion` and `animationDuration` flags).
+
+### Documentation
+- [x] `example/main.dart` revamp to contain all NeuWidgets.
+- [ ] Code Snippets and Set-up process explained for all the widgets
+
+### Issues Fixed
+- [x] closes #28 
+- [x] closes #24 
+- [x] closes #29 
+- [x] closes #28 
+- [x] closes #25 
+- [ ] closes #26 
+- [ ] closes #33 
+
+
 # 1.0.0 (15-04-2023)
 
 ## Release Highlights

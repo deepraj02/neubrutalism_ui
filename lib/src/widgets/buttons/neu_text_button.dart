@@ -28,7 +28,6 @@ class NeuTextButton extends StatefulWidget {
 
   NeuTextButton({
     Key? key,
-    this.title,
     this.buttonColor = neuDefault1,
     this.shadowColor = neuShadow,
     this.borderColor = neuBlack,
@@ -38,13 +37,11 @@ class NeuTextButton extends StatefulWidget {
     this.borderWidth = neuBorder,
     this.shadowBlurRadius = neuShadowBlurRadius,
     this.borderRadius,
-    this.blurGeometry = neuOffset,
-    this.child,
+    this.offset = neuOffset,
+    this.animationDuration = 100,
+    required this.text,
+    required this.enableAnimation,
   }) : super(key: key);
-
-  /// - title (optional) : A Text widget that contains the title of the button.
-  ///
-  final Text? title;
 
   /// - buttonColor (optional) : A Color that defines the color of the button.
   ///
@@ -91,47 +88,84 @@ class NeuTextButton extends StatefulWidget {
   /// If not specified, the button will have a circular border radius.
   final BorderRadius? borderRadius;
 
-  /// - blurGeometry (optional) : An Offset that defines the blur offset of the button's shadow.
+  /// - offset (optional) : An Offset that defines the blur offset of the button's shadow.
   ///
   /// By default, it is set to neuOffset.
   ///
-  final Offset blurGeometry;
+  final Offset offset;
 
-  /// - child (optional) : A Widget that will be placed inside the button.
+  /// - Text (required) : A Widget that will be placed inside the button.
+
   ///
-  /// This is useful if you want to add an icon or an image to the button.
-  final Widget? child;
+  /// This Property helps to insert a Text Widget and Customize it according to your need
+  final Text text;
+
+  /// animate (required) : Boolean Property to toggle the Animation property of the Button Widget.
+  ///
+  /// Creates a smooth pressing animation beginning from Offset(0,0) to the defined [`offset`] property. (Default offset value is (4,4))
+  final bool enableAnimation;
+
+  ///animationDuration (optional) : An Int. defining the Animation Duration in milliseconds.
+  ///
+  ///Default value is 100ms
+  final int animationDuration;
 
   @override
   State<NeuTextButton> createState() => NeuTextButtonState();
 }
 
-class NeuTextButtonState extends State<NeuTextButton> {
+class NeuTextButtonState extends State<NeuTextButton>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<Offset> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: widget.animationDuration),
+    );
+    _animation = Tween<Offset>(begin: const Offset(0, 0), end: widget.offset)
+        .animate(_controller);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: widget.onPressed,
-      child: Container(
-        width: widget.buttonWidth,
-        height: widget.buttonHeight,
-        decoration: BoxDecoration(
-          borderRadius: widget.borderRadius,
-          border: Border.all(
-            color: widget.borderColor,
-            width: widget.borderWidth,
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: widget.shadowColor,
-              blurRadius: widget.shadowBlurRadius,
-              offset: widget.blurGeometry,
-            ),
-          ],
-          color: widget.buttonColor,
-        ),
-        child: widget.child,
-        clipBehavior: Clip.antiAlias,
-      ),
+    return InkWell(
+      onTap: () {
+        if (widget.enableAnimation) {
+          _controller.forward().then((value) => _controller.reverse());
+        }
+        if (widget.onPressed != null) widget.onPressed!();
+      },
+      child: AnimatedBuilder(
+          animation: _animation,
+          builder: (context, l) {
+            return Transform.translate(
+              offset: _animation.value,
+              child: NeuContainer(
+                width: widget.buttonWidth ?? 300,
+                height: widget.buttonHeight ?? 100,
+                borderRadius: widget.borderRadius,
+                color: widget.buttonColor,
+                borderColor: widget.borderColor,
+                borderWidth: widget.borderWidth,
+                shadowColor: widget.shadowColor,
+                shadowBlurRadius: widget.shadowBlurRadius,
+                offset: widget.offset,
+                child: Center(
+                  child: widget.text,
+                ),
+              ),
+            );
+          }),
     );
   }
 }
