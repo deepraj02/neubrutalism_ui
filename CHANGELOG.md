@@ -1,4 +1,4 @@
-# 2.0.0 (01-09-2023)
+# 2.0.0-beta (22-08-2023)
 
 ## Release Highlights
 2.0.0 (Feature Update) will focused on adding more UI components and will reduce the complexity of creating Custom UI from this Package.
