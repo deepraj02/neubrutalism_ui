@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
 import 'package:neubrutalism_ui/neubrutalism_ui.dart';
 
 class NeuIconButton extends StatefulWidget {
@@ -32,12 +33,11 @@ class NeuIconButton extends StatefulWidget {
     this.shadowColor = neuShadow,
     this.borderColor = neuBlack,
     this.onPressed,
-    this.paddingData,
     this.borderRadius,
     this.offset = neuOffset,
     this.buttonHeight = 50,
-    this.shadowBlurRadius = neuShadowBlurRadius,
     this.buttonWidth = 50,
+    this.shadowBlurRadius = neuShadowBlurRadius,
     this.borderWidth = neuBorder,
   }) : super(key: key);
 
@@ -66,9 +66,6 @@ class NeuIconButton extends StatefulWidget {
   /// - onPressed (optional) : A callback function that is called when the button is pressed.
   ///
   final GestureTapCallback? onPressed;
-
-  /// - paddingData (optional) : An EdgeInsetsGeometry that defines the padding for the contents of the card.
-  final EdgeInsets? paddingData;
 
   /// - borderRadius (optional) : A BorderRadiusGeometry that defines the border radius of the button.
   ///
@@ -106,35 +103,52 @@ class NeuIconButton extends StatefulWidget {
 class NeuIconButtonState extends State<NeuIconButton> {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: widget.onPressed,
-      child: Container(
+      child: NeuContainer(
         width: widget.buttonWidth,
         height: widget.buttonHeight,
-        decoration: BoxDecoration(
-          borderRadius: widget.borderRadius,
-          border: Border.all(
-            color: widget.borderColor,
-            width: widget.borderWidth,
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: widget.shadowColor,
-              blurRadius: widget.shadowBlurRadius,
-              offset: widget.offset,
-            ),
-          ],
-          color: widget.buttonColor,
-        ),
-        padding: widget.paddingData,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            widget.icon,
-          ],
+        borderRadius: widget.borderRadius,
+        color: widget.buttonColor,
+        borderColor: widget.borderColor,
+        borderWidth: widget.borderWidth,
+        shadowColor: widget.shadowColor,
+        shadowBlurRadius: widget.shadowBlurRadius,
+        offset: widget.offset,
+        child: Center(
+          child: widget.icon,
         ),
       ),
     );
+    // return GestureDetector(
+    //   onTap: widget.onPressed,
+    //   child: Container(
+    //     width: widget.buttonWidth,
+    //     height: widget.buttonHeight,
+    //     decoration: BoxDecoration(
+    //       borderRadius: widget.borderRadius,
+    //       border: Border.all(
+    //         color: widget.borderColor,
+    //         width: widget.borderWidth,
+    //       ),
+    //       boxShadow: [
+    //         BoxShadow(
+    //           color: widget.shadowColor,
+    //           blurRadius: widget.shadowBlurRadius,
+    //           offset: widget.offset,
+    //         ),
+    //       ],
+    //       color: widget.buttonColor,
+    //     ),
+    //     padding: widget.paddingData,
+    //     child: Row(
+    //       mainAxisAlignment: MainAxisAlignment.center,
+    //       crossAxisAlignment: CrossAxisAlignment.center,
+    //       children: [
+    //         widget.icon,
+    //       ],
+    //     ),
+    //   ),
+    // );
   }
 }
