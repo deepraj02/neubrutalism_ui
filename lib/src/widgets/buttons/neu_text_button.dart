@@ -39,11 +39,8 @@ class NeuTextButton extends StatefulWidget {
     this.borderRadius,
     this.offset = neuOffset,
     required this.text,
-
     required this.animate,
     this.animationDuration = 100,
-
-
   }) : super(key: key);
 
   /// - buttonColor (optional) : A Color that defines the color of the button.
@@ -97,7 +94,6 @@ class NeuTextButton extends StatefulWidget {
   ///
   final Offset offset;
 
-
   /// - Text (required) : A Widget that will be placed inside the button.
 
   ///
@@ -142,9 +138,7 @@ class NeuTextButtonState extends State<NeuTextButton>
 
   @override
   Widget build(BuildContext context) {
-
     return InkWell(
-
       onTap: () {
         if (widget.animate) {
           _controller.forward().then((value) => _controller.reverse());
