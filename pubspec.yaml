@@ -8,7 +8,7 @@ issue_tracker: https://github.com/deepraj02/neubrutalism_ui/issues/
 version: 2.0.0-beta
 
 environment:
-  sdk: ">=2.19.0 <3.0.0"
+  sdk: ">=2.19.0 <4.0.0"
   flutter: ">=3.7.0"
 
 dependencies:
