@@ -13,7 +13,7 @@ New Widgets  `NeuBottomNav` will also be included along with other bug fixes and
 - [x] Changed the Initial UI Lookup Styling for widgets like `NeuTextButton` & `NeuSearchBar`.
 ### Features
 - [x]  `NeuBottomNav` -UI styling done and dusted (Navigation Part Under Development RN).
-- [x] OnPressed animation added in v2.0.0 for `NeuTextButton` & `NeuIconButton`
+- [x] OnPressed animation added in v2.0.0 for `NeuTextButton` & `NeuIconButton` (accessable by the `enableAniamtion` and `animationDuration` flags).
 
 ### Documentation
 - [x] `example/main.dart` revamp to contain all NeuWidgets.
