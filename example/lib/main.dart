@@ -46,7 +46,7 @@ class _TestNeuState extends State<TestNeu> {
             child: Column(
               children: [
                 NeuTextButton(
-                  animate: true,
+                  enableAnimation: true,
                   text: const Text(
                     "Hello ",
                     style: TextStyle(
@@ -56,7 +56,6 @@ class _TestNeuState extends State<TestNeu> {
                   onPressed: () {
                     debugPrint("Helloo ");
                   },
-                  
 
                   //buttonWidth: 300,
                   //buttonHeight: 100,
@@ -95,6 +94,19 @@ class _TestNeuState extends State<TestNeu> {
                         ),
                       ],
                     )),
+                const SizedBox(
+                  height: 40,
+                ),
+                NeuIconButton(
+                  buttonHeight: 150,
+                  buttonWidth: 150,
+                  icon: const Icon(
+                    Icons.dangerous,
+                    size: 90,
+                  ),
+                  offset: const Offset(10, 10),
+                  enableAnimation: true,
+                )
 
                 //NeuSearchBar()
               ],
@@ -148,14 +160,36 @@ class _TestNeuState extends State<TestNeu> {
           Icons.person_2_rounded,
         ],
         onIconTap: (index) {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (builder) {
-                return const AnotherPage();
-              },
-            ),
-          );
+          if (index == 0) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (builder) {
+                  return const AnotherPage();
+                },
+              ),
+            );
+          }
+          if (index == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (builder) {
+                  return const AnotherPage();
+                },
+              ),
+            );
+          }
+          if (index == 3) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (builder) {
+                  return const AnotherPage();
+                },
+              ),
+            );
+          }
         },
         initialIconColor: Colors.black,
       ),
