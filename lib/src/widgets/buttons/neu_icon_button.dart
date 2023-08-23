@@ -29,6 +29,7 @@ class NeuIconButton extends StatefulWidget {
   NeuIconButton({
     Key? key,
     required this.icon,
+    required this.enableAnimation,
     this.buttonColor = neuDefault1,
     this.shadowColor = neuShadow,
     this.borderColor = neuBlack,
@@ -39,6 +40,7 @@ class NeuIconButton extends StatefulWidget {
     this.buttonWidth = 50,
     this.shadowBlurRadius = neuShadowBlurRadius,
     this.borderWidth = neuBorder,
+    this.animationDuration = 100,
   }) : super(key: key);
 
   /// - icon (required) : A Icon Widget to help you add icons.
@@ -96,59 +98,73 @@ class NeuIconButton extends StatefulWidget {
   ///
   final double borderWidth;
 
+  /// animate (required) : Boolean Property to toggle the Animation property of the Button Widget.
+  ///
+  /// Creates a smooth pressing animation beginning from Offset(0,0) to the defined [`offset`] property. (Default offset value is (4,4))
+  final bool enableAnimation;
+
+  ///animationDuration (optional) : An Int. defining the Animation Duration in milliseconds.
+  ///
+  ///Default value is 100ms
+  final int animationDuration;
+
   @override
   State<NeuIconButton> createState() => NeuIconButtonState();
 }
 
-class NeuIconButtonState extends State<NeuIconButton> {
+class NeuIconButtonState extends State<NeuIconButton>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<Offset> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: widget.animationDuration),
+    );
+    _animation = Tween<Offset>(begin: const Offset(0, 0), end: widget.offset)
+        .animate(_controller);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: widget.onPressed,
-      child: NeuContainer(
-        width: widget.buttonWidth,
-        height: widget.buttonHeight,
-        borderRadius: widget.borderRadius,
-        color: widget.buttonColor,
-        borderColor: widget.borderColor,
-        borderWidth: widget.borderWidth,
-        shadowColor: widget.shadowColor,
-        shadowBlurRadius: widget.shadowBlurRadius,
-        offset: widget.offset,
-        child: Center(
-          child: widget.icon,
-        ),
+      onTap: () {
+        if (widget.enableAnimation) {
+          _controller.forward().then((value) => _controller.reverse());
+        }
+        if (widget.onPressed != null) widget.onPressed!();
+      },
+      child: AnimatedBuilder(
+        animation: _animation,
+        builder: (context, l) {
+          return Transform.translate(
+            offset: _animation.value,
+            child: NeuContainer(
+              width: widget.buttonWidth,
+              height: widget.buttonHeight,
+              borderRadius: widget.borderRadius,
+              color: widget.buttonColor,
+              borderColor: widget.borderColor,
+              borderWidth: widget.borderWidth,
+              shadowColor: widget.shadowColor,
+              shadowBlurRadius: widget.shadowBlurRadius,
+              offset: widget.offset,
+              child: Center(
+                child: widget.icon,
+              ),
+            ),
+          );
+        },
       ),
     );
-    // return GestureDetector(
-    //   onTap: widget.onPressed,
-    //   child: Container(
-    //     width: widget.buttonWidth,
-    //     height: widget.buttonHeight,
-    //     decoration: BoxDecoration(
-    //       borderRadius: widget.borderRadius,
-    //       border: Border.all(
-    //         color: widget.borderColor,
-    //         width: widget.borderWidth,
-    //       ),
-    //       boxShadow: [
-    //         BoxShadow(
-    //           color: widget.shadowColor,
-    //           blurRadius: widget.shadowBlurRadius,
-    //           offset: widget.offset,
-    //         ),
-    //       ],
-    //       color: widget.buttonColor,
-    //     ),
-    //     padding: widget.paddingData,
-    //     child: Row(
-    //       mainAxisAlignment: MainAxisAlignment.center,
-    //       crossAxisAlignment: CrossAxisAlignment.center,
-    //       children: [
-    //         widget.icon,
-    //       ],
-    //     ),
-    //   ),
-    // );
   }
 }
