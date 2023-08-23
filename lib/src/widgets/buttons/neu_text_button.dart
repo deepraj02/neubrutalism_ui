@@ -38,9 +38,9 @@ class NeuTextButton extends StatefulWidget {
     this.shadowBlurRadius = neuShadowBlurRadius,
     this.borderRadius,
     this.offset = neuOffset,
-    required this.text,
-    required this.animate,
     this.animationDuration = 100,
+    required this.text,
+    required this.enableAnimation,
   }) : super(key: key);
 
   /// - buttonColor (optional) : A Color that defines the color of the button.
@@ -103,7 +103,7 @@ class NeuTextButton extends StatefulWidget {
   /// animate (required) : Boolean Property to toggle the Animation property of the Button Widget.
   ///
   /// Creates a smooth pressing animation beginning from Offset(0,0) to the defined [`offset`] property. (Default offset value is (4,4))
-  final bool animate;
+  final bool enableAnimation;
 
   ///animationDuration (optional) : An Int. defining the Animation Duration in milliseconds.
   ///
@@ -140,7 +140,7 @@ class NeuTextButtonState extends State<NeuTextButton>
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        if (widget.animate) {
+        if (widget.enableAnimation) {
           _controller.forward().then((value) => _controller.reverse());
         }
         if (widget.onPressed != null) widget.onPressed!();
