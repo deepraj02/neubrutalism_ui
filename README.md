@@ -1,6 +1,6 @@
 <img src="https://user-images.githubusercontent.com/63138398/225706659-4fa396f3-fc8a-4cdc-bbd4-3600b323db97.svg" alt="Button Preview" > 
 
-  <h1 align="left">neubrutalism_ui v1.0.0</h1>
+  <h1 align="left">neubrutalism_ui v2.0.0 🥳</h1>
 <p align="center">
 <a href="https://github.com/deepraj02/neubrutalism_ui/issues">Request Feature</a>
 <br>
@@ -82,16 +82,22 @@ NeuTextButton(
 <!-- V 1.0.0 -->
 ```dart
 NeuTextButton(
-                  text: const Text(
-                    "Hello ",
-                    style: TextStyle(
-                      fontSize: 40,
-                    ),
-                  ),
-                  onPressed: () {
-                    debugPrint("Helloo ");
-                  },
-                ),
+      borderRadius: BorderRadius.circular(12),
+      buttonColor:
+          const Color.fromARGB(255, 236, 199, 211),
+      buttonHeight: 60,
+      buttonWidth: 100,
+      enableAnimation: true,
+      text: Text(
+        "Hello",
+        style: GoogleFonts.robotoCondensed(
+            textStyle: const TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.w700,
+        ),
+        ),
+      ),
+),
 ```
 </td>
 </tr>
@@ -99,97 +105,49 @@ NeuTextButton(
 
 # Usage
 
-### NeuTextButton with Customization (v2.0.0)
-
+### NeuTextButton with Customization (v2.0.0) : Enable Cool Animation
+#### (Set `enableAnimation=true`)
+Animations are currently mapped to the value fo offset provided in the `offset` property in the `NeuTextButton` and `NeuIconButton` widgets. 
+(P.S: More the Value of the offset more will be the onPressed bounce animation Value.)
 <table>
 <tr>
 <td>
 
-<!--TODO: Responsive on both sides (Use the Newer Code v2.0.0) -->
+
 ```dart
 NeuTextButton(
-                  text: const Text(
-                    "Hello ",
-                    style: TextStyle(
-                      fontSize: 40,
-                    ),
-                  ),
-                  onPressed: () {
-                    debugPrint("Helloo ");
-                  },
-                ),
+      borderRadius: BorderRadius.circular(12),
+      buttonColor:
+          const Color.fromARGB(255, 236, 199, 211),
+      buttonHeight: 60,
+      buttonWidth: 100,
+      enableAnimation: true,
+      text: Text(
+        "Hello",
+        style: GoogleFonts.robotoCondensed(
+            textStyle: const TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.w700,
+        ),
+        ),
+      ),
+),
 ```
 </td>
 <td>
-<img  src="https://user-images.githubusercontent.com/63138398/260050262-49206b74-1e74-4c07-8753-ecda4e512f42.png"  alt="">
+<img  src="https://user-images.githubusercontent.com/63138398/265234887-341632d2-5b7c-4e09-b226-7982e4de86c6.gif"  alt="">
 </td>
 </tr>
 </table>
 
 
-### The Neu - NeuContainer 
-The Main reason behind adding this NeuContainer Widget is to allow the Developers to Create Any custom Widgets which maynot be present in the Package, thus giving them full freedom to customize their Widgets without any restrictions.
-
-<table>
-<tr>
-<td>
+### The Neu - NeuBottomNav 
 
 
-<!-- TODO: Iska Kal dunga -->
-```dart
-NeuContainer(
-    height: 160,
-    width: 250,
-    child: Column(
-      children: [
-        const Text(
-          "This is NeuContainer",
-          style: TextStyle(fontSize: 23),
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Icon(
-              Icons.accessible_outlined,
-              size: 50,
-            ),
-            Icon(
-              Icons.accessible_outlined,
-              size: 50,
-            ),
-            Icon(
-              Icons.accessible_outlined,
-              size: 50,
-            ),
-            Icon(
-              Icons.accessible_outlined,
-              size: 50,
-            ),
-          ],
-        ),
-      ],
-    ),
-  ),
-```
-</td>
-<td>
-<img  src="https://user-images.githubusercontent.com/63138398/232233193-01c717a7-c1a6-4c69-b5a7-d8e39d1876eb.png"  alt="">
-</td>
-</tr>
-</table>
-
-<!-- TODO: Fix : Make it responsive -->
 
 #### Examples:
-| Component Name | Code                         | Preview                                                                                                                                          |
-| -------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| TextButton     | `NeuTextButton` | <img src="https://user-images.githubusercontent.com/63138398/225709552-5730bd9b-8e18-40c1-96e2-c45e7422a4c8.png" alt="Button Preview" >          |
-| NeuSearchBar   | `NeuSearchBar`    | <img src="https://user-images.githubusercontent.com/63138398/226177386-81a09de2-05f5-4848-8287-0fcbd20ba409.png" alt="NeuSearch Preview" >       |
-| NeuIconButton  | `NeuIconButton`   | <img src="https://user-images.githubusercontent.com/63138398/226177407-b435f7c2-6234-4943-a33e-6dbf1a714fa6.png" alt="Neu Icon Button Preview" > |
-| NeuContainer   | `NeuContainer`   | <img src="https://user-images.githubusercontent.com/63138398/232233193-01c717a7-c1a6-4c69-b5a7-d8e39d1876eb.png" alt="NeuContainer" > |
+
+<img  src="https://user-images.githubusercontent.com/63138398/265235364-a0afb9b4-1bb7-437b-8cd1-795483e0d781.png"  alt="">
 
 ## Roadmap
 
