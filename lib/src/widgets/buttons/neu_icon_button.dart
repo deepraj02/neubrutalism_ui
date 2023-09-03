@@ -137,12 +137,11 @@ class NeuIconButtonState extends State<NeuIconButton>
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        if (widget.enableAnimation) {
-          _controller.forward().then((value) => _controller.reverse());
-        }
-        if (widget.onPressed != null) widget.onPressed!();
-      },
+      onTap: () => widget.enableAnimation
+          ? _controller.forward().then((value) => _controller.reverse())
+          : widget.onPressed != null
+              ? widget.onPressed!()
+              : null,
       child: AnimatedBuilder(
         animation: _animation,
         builder: (context, l) {

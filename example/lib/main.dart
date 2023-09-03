@@ -1,202 +1,356 @@
-import 'package:example/another_page.dart';
 import 'package:flutter/material.dart';
+
+import 'package:google_fonts/google_fonts.dart';
 import 'package:neubrutalism_ui/neubrutalism_ui.dart';
 
-void main() => runApp(const Main());
+void main() {
+  runApp(const NeuBrutalism());
+}
 
-class Main extends StatelessWidget {
-  //final TextEditingController _editingController = TextEditingController();
-  const Main({super.key});
+class NeuBrutalism extends StatelessWidget {
+  const NeuBrutalism({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/',
-      routes: {
-        //'/': (context) => TestNeu(),
-        '/a': (context) => const AnotherPage()
-      },
-
-      // home: TestNeu(),
-      home: const TestNeu(),
+      home: ScreenWidget(),
     );
   }
 }
 
-class TestNeu extends StatefulWidget {
-  const TestNeu({Key? key}) : super(key: key);
-
-  @override
-  State<TestNeu> createState() => _TestNeuState();
-}
-
-class _TestNeuState extends State<TestNeu> {
-  final ScrollController _controller = ScrollController();
+class ScreenWidget extends StatelessWidget {
+  const ScreenWidget({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final controller = TextEditingController();
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      extendBody: true,
-      backgroundColor: const Color(0xFFE1FFC9),
       body: SafeArea(
-          bottom: false,
-          child: Center(
+          minimum: const EdgeInsets.only(top: 30, left: 10, right: 10),
+          child: SingleChildScrollView(
             child: Column(
               children: [
-                NeuTextButton(
-                  enableAnimation: true,
-                  text: const Text(
-                    "Hello ",
-                    style: TextStyle(
-                      fontSize: 40,
-                    ),
-                  ),
-                  onPressed: () {
-                    debugPrint("Helloo ");
-                  },
-
-                  //buttonWidth: 300,
-                  //buttonHeight: 100,
-                ),
-
-                const SizedBox(
-                  height: 50,
-                ),
-                NeuSearchBar(),
-                const SizedBox(
-                  height: 50,
-                ),
-
-                NeuContainer(
-                    height: 100,
-                    width: 300,
-                    color: Colors.white,
-                    offset: const Offset(5, 5),
-                    borderWidth: 1,
-                    borderRadius: BorderRadius.circular(8),
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        FlutterLogo(
-                          size: 100,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Hi, Deepraj",
+                      style: GoogleFonts.anton(
+                        textStyle: const TextStyle(
+                          fontSize: 30,
                         ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text("Maa Ka Bhosda"),
-                            SizedBox(
-                              height: 10,
+                      ),
+                    ),
+                    NeuContainer(
+                        color: Colors.blueAccent,
+                        height: 50,
+                        width: 50,
+                        borderRadius: BorderRadius.circular(12),
+                        offset: const Offset(3, 3),
+                        child: const Icon(
+                          Icons.supervised_user_circle_outlined,
+                          size: 40,
+                        )),
+                  ],
+                ),
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "Become a Better Dev Today",
+                    style: GoogleFonts.robotoCondensed(
+                        textStyle: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w300,
+                    )),
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    NeuSearchBar(
+                      searchController: controller,
+                      keyboardType: TextInputType.name,
+                      searchBarColor: Colors.white,
+                      hintText: "What are you looking for",
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    NeuIconButton(
+                        buttonColor: const Color.fromARGB(255, 234, 203, 214),
+                        borderRadius: BorderRadius.circular(10),
+                        icon: const Icon(Icons.sort),
+                        enableAnimation: false)
+                  ],
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Course in Progress",
+                    style: GoogleFonts.robotoCondensed(
+                        textStyle: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                    )),
+                  ),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                NeuContainer(
+                  color: Colors.white,
+                  height: 150,
+                  width: double.maxFinite,
+                  borderRadius: BorderRadius.circular(12),
+                  borderWidth: 2,
+                  child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Column(
+                      children: [
+                        const Spacer(),
+                        Align(
+                          alignment: Alignment.bottomRight,
+                          child: NeuTextButton(
+                            borderRadius: BorderRadius.circular(12),
+                            buttonColor:
+                                const Color.fromARGB(255, 236, 199, 211),
+                            buttonHeight: 60,
+                            buttonWidth: 100,
+                            enableAnimation: true,
+                            text: Text(
+                              "Start",
+                              style: GoogleFonts.robotoCondensed(
+                                  textStyle: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w700,
+                              )),
                             ),
-                            Text("data")
-                          ],
+                          ),
                         ),
                       ],
-                    )),
-                const SizedBox(
-                  height: 40,
-                ),
-                NeuIconButton(
-                  buttonHeight: 150,
-                  buttonWidth: 150,
-                  icon: const Icon(
-                    Icons.dangerous,
-                    size: 90,
+                    ),
                   ),
-                  offset: const Offset(10, 10),
-                  enableAnimation: true,
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Popular Course",
+                    style: GoogleFonts.robotoCondensed(
+                        textStyle: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                    )),
+                  ),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      NewWidget(
+                        image: Image.network(
+                            'https://images.unsplash.com/photo-1533518463841-d62e1fc91373?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80'),
+                        text: 'Dexter Lab 101',
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      NewWidget(
+                        image: Image.network(
+                            'https://images.unsplash.com/photo-1640499900704-b00dd6a1103a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2942&q=80'),
+                        text: 'Cosmos',
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Top Mentors",
+                    style: GoogleFonts.robotoCondensed(
+                        textStyle: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                    )),
+                  ),
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
+                const SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      MentorsCard(),
+                      MentorsCard(),
+                      MentorsCard(),
+                      MentorsCard(),
+                      MentorsCard(),
+                      MentorsCard(),
+                      MentorsCard(),
+                    ],
+                  ),
                 )
-
-                //NeuSearchBar()
               ],
             ),
-          )
-          // child: GridView.builder(
-          //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          //     crossAxisCount: 2,
-          //     crossAxisSpacing: 10,
-          //     mainAxisSpacing: 10,
-          //   ),
-          //   controller: _controller,
-          //   itemCount:
-          //       10, // Replace this with the number of containers you want to display
-          //   itemBuilder: (context, index) {
-          //     return Padding(
-          //       padding: const EdgeInsets.all(8.0),
-          //       child: NeuContainer(
-          //         height: MediaQuery.of(context).size.height / 4,
-          //         width: MediaQuery.of(context).size.width / 2,
-          //         offset: const Offset(-4, -2),
-          //         borderRadius: BorderRadius.circular(16),
-          //         color: Colors.white,
-          //         borderColor: Colors.black,
-          //         child: const Column(
-          //           children: [
-          //             Padding(
-          //               padding: EdgeInsets.only(top: 80.0),
-          //               child: Text(
-          //                 "",
-          //                 style: TextStyle(
-          //                   fontSize: 50,
-          //                 ),
-          //               ),
-          //             ),
-          //           ],
-          //         ),
-          //       ),
-          //     );
-          //   },
-          // ),
+          )),
+    );
+  }
+}
+
+class MentorsCard extends StatelessWidget {
+  const MentorsCard({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return NeuContainer(
+      shadowColor: Colors.transparent,
+      color: Colors.white,
+      height: 80,
+      width: 250,
+      borderRadius: BorderRadius.circular(10),
+      child: Row(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: NeuCard(
+              borderRadius: BorderRadius.circular(50),
+              shadowColor: Colors.transparent,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(50),
+                child: Image.network(
+                  'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2864&q=80',
+                ),
+              ),
+            ),
           ),
-      bottomNavigationBar: NeuBottomNav(
-        navBarColor: const Color.fromARGB(255, 254, 210, 225),
-        isFloating: true,
-        autoHideOnScroll: true,
-        scrollController: _controller,
-        icons: const [
-          Icons.home,
-          Icons.shopping_cart_checkout,
-          Icons.person_2_rounded,
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Text(
+                "John Doe",
+                textAlign: TextAlign.start,
+                style: GoogleFonts.robotoCondensed(
+                  textStyle: const TextStyle(
+                    fontSize: 26,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Text(
+                "Full-Stack Developer",
+                textAlign: TextAlign.start,
+                style: GoogleFonts.robotoCondensed(
+                  textStyle: const TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+            ],
+          )
         ],
-        onIconTap: (index) {
-          if (index == 0) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (builder) {
-                  return const AnotherPage();
-                },
-              ),
-            );
-          }
-          if (index == 1) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (builder) {
-                  return const AnotherPage();
-                },
-              ),
-            );
-          }
-          if (index == 3) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (builder) {
-                  return const AnotherPage();
-                },
-              ),
-            );
-          }
-        },
-        initialIconColor: Colors.black,
       ),
     );
   }
+}
 
-  void onT(int index) {
-    setState(() {});
+class NewWidget extends StatelessWidget {
+  const NewWidget({
+    super.key,
+    required this.image,
+    required this.text,
+  });
+  final Image image;
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: NeuContainer(
+        height: 260,
+        width: 230,
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(13),
+        child: Column(
+          children: [
+            image,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Align(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  text,
+                  style: GoogleFonts.robotoCondensed(
+                    textStyle: const TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 5.0),
+              child: Row(
+                children: [
+                  const Icon(Icons.access_time_outlined),
+                  Text(
+                    "30 hrs",
+                    style: GoogleFonts.robotoCondensed(
+                        textStyle: const TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w700,
+                    )),
+                  ),
+                  const SizedBox(
+                    width: 30,
+                  ),
+                  const Icon(Icons.star_border),
+                  Text(
+                    "4.5",
+                    style: GoogleFonts.robotoCondensed(
+                        textStyle: const TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w700,
+                    )),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 12.0),
+              child: Align(
+                alignment: Alignment.bottomRight,
+                child: NeuIconButton(
+                    buttonHeight: 30,
+                    buttonWidth: 30,
+                    buttonColor: const Color.fromARGB(255, 248, 250, 194),
+                    icon: const Icon(Icons.arrow_forward),
+                    enableAnimation: true,
+                    borderRadius: BorderRadius.circular(20)),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
