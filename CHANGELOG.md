@@ -1,3 +1,11 @@
+# 2.0.0-beta-2(03-09-2023)
+
+## Release Highlights
+
+- [x] Docs Update for v2.0.0-beta()
+- [x] Minor UI and Code Fixes
+- [x] Example app revamp to include all Widgets.
+
 # 2.0.0 (01-09-2023)
 
 ## Release Highlights
