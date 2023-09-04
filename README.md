@@ -143,7 +143,19 @@ NeuTextButton(
 
 ### The Neu - NeuBottomNav 
 
+#### Usage ans Setup
 
+In-order to disable the container overflow behind the Bottom Nav we need to specify the following flags in both the `Scaffold` and `SafeArea` widget.
+
+The NeuBottomNav contains some additional flags such as `hideOnScroll`, `enableFloating` etc:
+```dart
+Scaffold(
+      resizeToAvoidBottomInset: false,
+      extendBody: true,
+      child:SafeArea(
+        bottom: false,
+      ))
+```
 
 #### Examples:
 
