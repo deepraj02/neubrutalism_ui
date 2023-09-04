@@ -27,8 +27,13 @@ class ScreenWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = TextEditingController();
+    final scrollController = ScrollController();
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+      extendBody: true,
+      // backgroundColor: const Color.fromARGB(255, 232, 210, 236),
       body: SafeArea(
+          bottom: false,
           minimum: const EdgeInsets.only(top: 30, left: 10, right: 10),
           child: SingleChildScrollView(
             child: Column(
@@ -210,6 +215,19 @@ class ScreenWidget extends StatelessWidget {
               ],
             ),
           )),
+      bottomNavigationBar: NeuBottomNav(
+        navBarColor: const Color.fromARGB(255, 254, 210, 225),
+        isFloating: true,
+        autoHideOnScroll: true,
+        scrollController: scrollController,
+        icons: const [
+          Icons.home,
+          Icons.shopping_cart_checkout,
+          Icons.person_2_rounded,
+        ],
+        initialIconColor: Colors.black,
+        onIconTap: (int) {},
+      ),
     );
   }
 }
