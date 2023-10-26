@@ -28,7 +28,11 @@ class ScreenWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = TextEditingController();
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+      extendBody: true,
+      // backgroundColor: const Color.fromARGB(255, 232, 210, 236),
       body: SafeArea(
+          bottom: false,
           minimum: const EdgeInsets.only(top: 30, left: 10, right: 10),
           child: SingleChildScrollView(
             child: Column(
