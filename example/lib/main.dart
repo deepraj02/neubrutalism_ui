@@ -27,7 +27,6 @@ class ScreenWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = TextEditingController();
-    final scrollController = ScrollController();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       extendBody: true,
@@ -215,19 +214,6 @@ class ScreenWidget extends StatelessWidget {
               ],
             ),
           )),
-      bottomNavigationBar: NeuBottomNav(
-        navBarColor: const Color.fromARGB(255, 254, 210, 225),
-        isFloating: true,
-        autoHideOnScroll: true,
-        scrollController: scrollController,
-        icons: const [
-          Icons.home,
-          Icons.shopping_cart_checkout,
-          Icons.person_2_rounded,
-        ],
-        initialIconColor: Colors.black,
-        onIconTap: (int) {},
-      ),
     );
   }
 }
