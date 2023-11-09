@@ -125,7 +125,8 @@ class NeuButtonState extends State<NeuButton>
         setState(() {});
       });
     _animation = Tween<Offset>(begin: const Offset(0, 0), end: widget.offset)
-        .animate(_controller);
+        .animate(new CurvedAnimation(
+            parent: _controller, curve: Curves.bounceInOut));
   }
 
   @override
