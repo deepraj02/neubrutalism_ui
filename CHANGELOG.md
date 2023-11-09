@@ -10,8 +10,8 @@ Performance and Bug Fixes.
 
 ### Closes 
 - [x] closes #39
-- [ ] closes #41
-- [ ] closes #40
+- [x] closes #41
+- [x] closes #40
 
 
 
