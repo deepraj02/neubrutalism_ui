@@ -1,3 +1,20 @@
+# 2.0.1 (09-11-2023)
+
+## Release Highlights
+Performance and Bug Fixes.
+
+### Changes
+- [x] `SearchBarIcon` is renamed as `leadingIcon` for `NeuSearchBar` Widget. (Done to make the properties more self-Explainatory).
+- [x] fix: Stationary Shadow in `NeuButtons` (The offset staying stationary onPressing).
+- [x] fix:  `OnPressed` function not invoking while `enableAnimation` value set to true.
+
+### Closes 
+- [x] closes #39
+- [x] closes #41
+- [x] closes #40
+
+
+
 # 2.0.0 (26-10-2023)
 
 ## Release Highlights

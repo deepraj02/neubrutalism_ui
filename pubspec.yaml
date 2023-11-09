@@ -5,7 +5,7 @@ description: A Flutter package that provides a set of Neubrutalism-style UI
 maintainer: Deepraj Baidya <@deepraj02>
 repository: https://github.com/deepraj02/neubrutalism_ui.git
 issue_tracker: https://github.com/deepraj02/neubrutalism_ui/issues/
-version: 2.0.0
+version: 2.0.1
 
 environment:
   sdk: ">=2.19.0 <4.0.0"

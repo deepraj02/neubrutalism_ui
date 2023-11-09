@@ -34,7 +34,7 @@ class NeuSearchBar extends StatefulWidget {
     this.searchBarWidth,
     this.borderWidth = neuBorder,
     this.shadowBlurRadius = neuShadowBlurRadius,
-    this.searchBarIcon,
+    this.leadingIcon,
     this.shadowOffset = neuOffset,
     this.borderRadius,
     this.borderColor = neuBlack,
@@ -95,11 +95,11 @@ class NeuSearchBar extends StatefulWidget {
 
   final double shadowBlurRadius;
 
-  /// - searchBarIcon (optional): An Icon widget that displays an icon in the search bar.
+  /// - leadingIcon (optional): An Icon widget that displays an icon in the search bar.
   ///
   /// By default, it is set to null.
 
-  final Icon? searchBarIcon;
+  final Icon? leadingIcon;
 
   /// - shadowOffset (optional): An Offset that defines the offset of the shadow of the search bar.
   ///
@@ -151,7 +151,7 @@ class _NeuSearchBarState extends State<NeuSearchBar> {
       child: Row(
         children: [
           SizedBox(width: 6),
-          widget.searchBarIcon ?? Icon(Icons.search),
+          widget.leadingIcon ?? Icon(Icons.search),
           SizedBox(width: 13),
           Expanded(
             child: TextField(

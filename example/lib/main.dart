@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:google_fonts/google_fonts.dart';
 import 'package:neubrutalism_ui/neubrutalism_ui.dart';
 
@@ -75,7 +74,7 @@ class ScreenWidget extends StatelessWidget {
                   height: 30,
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     NeuSearchBar(
                       searchController: controller,
@@ -85,10 +84,13 @@ class ScreenWidget extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                     ),
                     NeuIconButton(
-                        buttonColor: const Color.fromARGB(255, 234, 203, 214),
-                        borderRadius: BorderRadius.circular(10),
-                        icon: const Icon(Icons.sort),
-                        enableAnimation: false)
+                      buttonWidth: 60,
+                      buttonColor: const Color.fromARGB(255, 234, 203, 214),
+                      borderRadius: BorderRadius.circular(10),
+                      icon: const Icon(Icons.sort),
+                      onPressed: () => print("hii"),
+                      enableAnimation: false,
+                    )
                   ],
                 ),
                 const SizedBox(
@@ -128,6 +130,9 @@ class ScreenWidget extends StatelessWidget {
                             buttonHeight: 60,
                             buttonWidth: 100,
                             enableAnimation: true,
+                            onPressed: () {
+                              debugPrint("Hello Neubrutalism");
+                            },
                             text: Text(
                               "Start",
                               style: GoogleFonts.robotoCondensed(

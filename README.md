@@ -185,18 +185,8 @@ Contributions are what make the open source community such an amazing place to b
 
 Distributed under the MIT License. See [LICENSE](https://github.com/deepraj02/neubrutalism_ui/blob/master/LICENSE.md) for more information.
 
-## Authors
-<!-- TODO: Add name -->
-* **Deepraj Baidya** - *Flutter SDE Intern* - [Deepraj Baidya](https://github.com/deepraj02) - *🤔 *
+## Author
+* **Deepraj Baidya** - *Flutter SDE Intern* - [Deepraj Baidya](https://github.com/deepraj02) - *🤔*
 
-
-<!-- 
-
-  1. GIF Mobile Screen with all widgets
- 2.  Indepth properties analysis
- 3.  `NeuBottomNav` Introduction.(Application Video and Tutorial)
- 4.  Example code refactor for README (NeuCntainer, NeuBottomNav & NeuTextButton)
- 5.  Whats the Difference v1.0.0 vs 2.0.0 (NeuTextButton) {Contains Braking Changes}
- 6.  Edit Authors Part.
- 7.  
- -->
+## Contributors
+![Contributors](https://contrib.rocks/image?repo=deepraj02/neubrutalism_ui)
