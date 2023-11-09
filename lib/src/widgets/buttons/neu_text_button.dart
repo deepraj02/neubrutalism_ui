@@ -2,8 +2,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:neubrutalism_ui/neubrutalism_ui.dart';
+import '_button.dart';
 
-class NeuTextButton extends StatefulWidget {
+class NeuTextButton extends NeuButton {
   /// A customizable neubrutalist-style text button.
   ///
   /// The button has a text label, customizable background color, border color,
@@ -28,143 +29,37 @@ class NeuTextButton extends StatefulWidget {
 
   NeuTextButton({
     Key? key,
-    this.buttonColor = neuDefault1,
-    this.shadowColor = neuShadow,
-    this.borderColor = neuBlack,
-    this.onPressed,
-    this.buttonHeight,
-    this.buttonWidth,
-    this.borderWidth = neuBorder,
-    this.shadowBlurRadius = neuShadowBlurRadius,
-    this.borderRadius,
-    this.offset = neuOffset,
-    this.animationDuration = 100,
+    required enableAnimation,
     required this.text,
-    required this.enableAnimation,
-  }) : super(key: key);
-
-  /// - buttonColor (optional) : A Color that defines the color of the button.
-  ///
-  /// By default, it is set to neuDefault1 (black).
-  final Color buttonColor;
-
-  /// shadowColor (optional) : A Color that defines the color of the button's shadow.
-  ///
-  /// By default, it is set to neuShadow.
-  ///
-  final Color shadowColor;
-
-  // - borderColor (optional) : A Color that defines the color of the button's border.
-  //
-  //By default, it is set to neuBlack.
-
-  final Color borderColor;
-
-  /// - onPressed (optional) : A callback function that is called when the button is pressed.
-  ///
-  final GestureTapCallback? onPressed;
-
-  /// - buttonHeight (optional) : A double value that defines the height of the button.
-  ///
-  final double? buttonHeight;
-
-  /// - buttonWidth (optional) : A double value that defines the width of the button.
-  ///
-  final double? buttonWidth;
-
-  /// - borderWidth (optional) : A double value that defines the width of the button's border.
-  ///
-  /// By default, it is set to neuBorder.
-  ///
-  final double borderWidth;
-
-  /// - shadowBlurRadius (optional) : A double value that defines the blur radius of the button's shadow.
-  ///
-  /// By default, it is set to neuShadowBlurRadius.
-  final double shadowBlurRadius;
-
-  /// - borderRadius (optional) : A BorderRadiusGeometry that defines the border radius of the button.
-  ///
-  /// If not specified, the button will have a circular border radius.
-  final BorderRadius? borderRadius;
-
-  /// - offset (optional) : An Offset that defines the blur offset of the button's shadow.
-  ///
-  /// By default, it is set to neuOffset.
-  ///
-  final Offset offset;
-
-  /// - Text (required) : A Widget that will be placed inside the button.
+    animationDuration = 100,
+    borderColor = neuBlack,
+    borderRadius,
+    borderWidth = neuBorder,
+    buttonColor = neuDefault1,
+    buttonHeight = 50,
+    buttonWidth = 100,
+    offset = neuOffset,
+    onPressed,
+    shadowBlurRadius = neuShadowBlurRadius,
+    shadowColor = neuShadow,
+  }) : super(
+          animationDuration: animationDuration,
+          borderColor: borderColor,
+          borderRadius: borderRadius,
+          borderWidth: borderWidth,
+          buttonColor: buttonColor,
+          buttonHeight: buttonHeight,
+          buttonWidth: buttonWidth,
+          child: text,
+          enableAnimation: enableAnimation,
+          key: key,
+          offset: offset,
+          onPressed: onPressed,
+          shadowBlurRadius: shadowBlurRadius,
+          shadowColor: shadowColor,
+        );
 
   ///
   /// This Property helps to insert a Text Widget and Customize it according to your need
   final Text text;
-
-  /// animate (required) : Boolean Property to toggle the Animation property of the Button Widget.
-  ///
-  /// Creates a smooth pressing animation beginning from Offset(0,0) to the defined [`offset`] property. (Default offset value is (4,4))
-  final bool enableAnimation;
-
-  ///animationDuration (optional) : An Int. defining the Animation Duration in milliseconds.
-  ///
-  ///Default value is 100ms
-  final int animationDuration;
-
-  @override
-  State<NeuTextButton> createState() => NeuTextButtonState();
-}
-
-class NeuTextButtonState extends State<NeuTextButton>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<Offset> _animation;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      duration: Duration(milliseconds: widget.animationDuration),
-    );
-    _animation = Tween<Offset>(begin: const Offset(0, 0), end: widget.offset)
-        .animate(_controller);
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () => widget.enableAnimation
-          ? _controller.forward().then((value) => _controller.reverse())
-          : widget.onPressed != null
-              ? widget.onPressed!()
-              : null,
-      child: AnimatedBuilder(
-          animation: _animation,
-          builder: (context, l) {
-            return Transform.translate(
-              offset: _animation.value,
-              child: NeuContainer(
-                width: widget.buttonWidth ?? 300,
-                height: widget.buttonHeight ?? 100,
-                borderRadius: widget.borderRadius,
-                color: widget.buttonColor,
-                borderColor: widget.borderColor,
-                borderWidth: widget.borderWidth,
-                shadowColor: widget.shadowColor,
-                shadowBlurRadius: widget.shadowBlurRadius,
-                offset: widget.offset,
-                child: Center(
-                  child: widget.text,
-                ),
-              ),
-            );
-          }),
-    );
-  }
 }
