@@ -138,13 +138,21 @@ class NeuButtonState extends State<NeuButton>
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+        var doOnPressedAction = () => {
+              if (widget.onPressed != null) {widget.onPressed!()}
+            };
+
         if (widget.enableAnimation) {
+          // do the on pressed action after the
+          // first part of animation
           _controller.forward().then((value) {
+            doOnPressedAction();
             _controller.reverse();
           });
-        }
-        if (widget.onPressed != null) {
-          widget.onPressed!();
+        } else {
+          // do on pressed action without any
+          // animation
+          doOnPressedAction();
         }
       },
       child: AnimatedBuilder(
