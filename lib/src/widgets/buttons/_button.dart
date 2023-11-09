@@ -140,12 +140,10 @@ class NeuButtonState extends State<NeuButton>
       onTap: () {
         if (widget.enableAnimation) {
           _controller.forward().then((value) {
-            if (widget.onPressed != null) {
-              widget.onPressed!();
-              _controller.reverse();
-            }
+            _controller.reverse();
           });
-        } else if (widget.onPressed != null) {
+        }
+        if (widget.onPressed != null) {
           widget.onPressed!();
         }
       },
