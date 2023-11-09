@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:neubrutalism_ui/neubrutalism_ui.dart';
 
 class NeuButton extends StatefulWidget {
@@ -138,11 +137,18 @@ class NeuButtonState extends State<NeuButton>
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => widget.enableAnimation
-          ? _controller.forward().then((value) => _controller.reverse())
-          : widget.onPressed != null
-              ? widget.onPressed!()
-              : null,
+      onTap: () {
+        if (widget.enableAnimation) {
+          _controller.forward().then((value) {
+            if (widget.onPressed != null) {
+              widget.onPressed!();
+              _controller.reverse();
+            }
+          });
+        } else if (widget.onPressed != null) {
+          widget.onPressed!();
+        }
+      },
       child: AnimatedBuilder(
         animation: _animation,
         child: NeuContainer(
