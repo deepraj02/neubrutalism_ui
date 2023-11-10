@@ -1,3 +1,14 @@
+# 2.0.2 (10-11-2023)
+
+## Release Highlights
+Performance and Bug Fixes.
+
+### Changes
+- [x] fix:  Reversed animation and onTap as seperate concepts in InkWell widget
+
+### Closes 
+- [x] closes #45
+
 # 2.0.1 (09-11-2023)
 
 ## Release Highlights
