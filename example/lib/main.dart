@@ -130,9 +130,7 @@ class ScreenWidget extends StatelessWidget {
                             buttonHeight: 60,
                             buttonWidth: 100,
                             enableAnimation: true,
-                            onPressed: () {
-                              debugPrint("Hello Neubrutalism");
-                            },
+                            onPressed: () => debugPrint("hello"),
                             text: Text(
                               "Start",
                               style: GoogleFonts.robotoCondensed(
