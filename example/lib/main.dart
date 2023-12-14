@@ -3,7 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:neubrutalism_ui/neubrutalism_ui.dart';
 
 void main() {
-  runApp(const NeuBrutalism());
+  runApp(
+    const NeuBrutalism(),
+  );
 }
 
 class NeuBrutalism extends StatelessWidget {
@@ -18,22 +20,46 @@ class NeuBrutalism extends StatelessWidget {
   }
 }
 
-class ScreenWidget extends StatelessWidget {
+class ScreenWidget extends StatefulWidget {
   const ScreenWidget({
     super.key,
   });
 
   @override
+  State<ScreenWidget> createState() => _ScreenWidgetState();
+}
+
+class _ScreenWidgetState extends State<ScreenWidget> {
+  @override
   Widget build(BuildContext context) {
     final controller = TextEditingController();
+    final scrollController = ScrollController();
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       extendBody: true,
       // backgroundColor: const Color.fromARGB(255, 232, 210, 236),
+      bottomNavigationBar: NeuBottomNav(
+        icons: const [
+          Icons.home,
+          Icons.home,
+          Icons.home,
+        ], // Add the required argument for 'icons'.
+        initialIconColor:
+            Colors.black, // Add the required argument for 'initialIconColor'.
+        navBarColor:
+            Colors.white, // Add the required argument for 'navBarColor'.
+        onIconTap: (index) {}, // Add the required argument for 'onIconTap'.
+        autoHideOnScroll:
+            true, // Add the required argument for 'autoHideOnScroll'.
+        scrollController:
+            scrollController, // Add the required argument for 'scrollController'.
+      ),
       body: SafeArea(
           bottom: false,
           minimum: const EdgeInsets.only(top: 30, left: 10, right: 10),
           child: SingleChildScrollView(
+            controller: scrollController,
             child: Column(
               children: [
                 Row(
@@ -213,7 +239,7 @@ class ScreenWidget extends StatelessWidget {
                       MentorsCard(),
                     ],
                   ),
-                )
+                ),
               ],
             ),
           )),
