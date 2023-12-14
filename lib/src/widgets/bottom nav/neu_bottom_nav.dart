@@ -5,9 +5,8 @@ import '../../../neubrutalism_ui.dart';
 
 class NeuBottomNav extends StatefulWidget {
   final List<IconData> icons;
-  final Function(int) onIconTap;
+  final Function onIconTap;
   final bool isFloating;
-  //final bool autoHide;
   final double? floatingHeight;
   final double? floatingWidth;
   final double? stackedHeight;
@@ -49,7 +48,6 @@ class _NeuBottomNavState extends State<NeuBottomNav> {
   void initState() {
     super.initState();
     if (widget.autoHideOnScroll) {
-      // Attach a listener to the ScrollController to handle scrolling events
       widget.scrollController.addListener(_handleScroll);
     }
   }
@@ -57,7 +55,6 @@ class _NeuBottomNavState extends State<NeuBottomNav> {
   @override
   void dispose() {
     if (widget.autoHideOnScroll) {
-      // Clean up the ScrollController when the widget is disposed
       widget.scrollController.dispose();
     }
     super.dispose();
@@ -69,7 +66,6 @@ class _NeuBottomNavState extends State<NeuBottomNav> {
         ScrollDirection.forward;
     if (scrollDown != _isVisible) {
       setState(() {
-        // Set the visibility state based on the scroll direction
         _isVisible = scrollDown;
       });
     }
@@ -163,3 +159,7 @@ class _NeuBottomNavState extends State<NeuBottomNav> {
     return bottomNavWidget;
   }
 }
+
+
+//TODO:Add BottomNavItem Class for the bottom nav items
+//TODO: Navigation Mechanism like BottomNavBar
