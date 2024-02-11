@@ -38,6 +38,7 @@ dependencies:
   neubrutalism_ui: 
     path: ..
   google_fonts: ^5.1.0
+  flutter_animate: ^4.5.0
 
 dev_dependencies:
   flutter_test:
