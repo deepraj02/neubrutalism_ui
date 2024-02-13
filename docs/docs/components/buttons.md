@@ -4,8 +4,13 @@ sidebar_position: 1
 
 # Buttons
 
-Let's translate `docs/intro.md` to French.
+## General Properties:
 
+- [x] `child`: The child widget inside of the button
+- [ ] `animationDuration` :(optional) : An Int. defining the Animation Duration in milliseconds.
+
+
+## NeuTextButton Specific:
 ## Configure i18n
 
 Modify `docusaurus.config.js` to add support for the `fr` locale:

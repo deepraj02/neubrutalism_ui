@@ -3,4 +3,9 @@ sidebar_position: 1
 ---
 
 
-# NeuContainer API
+# NeuContainer 
+
+## Properties
+
+- [x] `child`:
+
