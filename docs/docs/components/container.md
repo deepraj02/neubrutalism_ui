@@ -2,10 +2,8 @@
 sidebar_position: 1
 ---
 
-
-# NeuContainer 
+# NeuContainer
 
 ## Properties
 
 - [x] `child`:
-

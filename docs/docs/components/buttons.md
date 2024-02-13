@@ -9,8 +9,8 @@ sidebar_position: 1
 - [x] `child`: The child widget inside of the button
 - [ ] `animationDuration` :(optional) : An Int. defining the Animation Duration in milliseconds.
 
-
 ## NeuTextButton Specific:
+
 ## Configure i18n
 
 Modify `docusaurus.config.js` to add support for the `fr` locale:
@@ -18,8 +18,8 @@ Modify `docusaurus.config.js` to add support for the `fr` locale:
 ```js title="docusaurus.config.js"
 export default {
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'fr'],
+    defaultLocale: "en",
+    locales: ["en", "fr"],
   },
 };
 ```
@@ -65,7 +65,7 @@ export default {
       items: [
         // highlight-start
         {
-          type: 'localeDropdown',
+          type: "localeDropdown",
         },
         // highlight-end
       ],
