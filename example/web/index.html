@@ -60,65 +60,26 @@
       }
 
       /* ===== Loader CSS 👇 =====*/
-      img {
-        width: 100px;
-        height: 100px;
-        position: absolute;
-      }
-
-      .loader {
-        position: relative;
-        width: 250px;
-        height: 250px;
-        border-radius: 50%;
-        background: linear-gradient(#f07e6e, #84cdfa, #5ad1cd);
-        animation: animate 1.2s linear infinite;
-      }
-
-      @keyframes animate {
-        0% {
-          transform: rotate(0deg);
-        }
-
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-
-      .loader span {
-        position: absolute;
-        width: 100%;
+     
+      .imgcontent {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         height: 100%;
-        border-radius: 60%;
-        background: linear-gradient(#f07e6e, #84cdfa, #5ad1cd);
+        width: 100%;
       }
-
-      .loader span:nth-child(1) {
-        filter: blur(5px);
+      @keyframes zoom-in-zoom-out {
+        0% {
+          transform: scale(1, 1);
+        }
+        50% {
+          transform: scale(1.5, 1.5);
+        }
+        100% {
+          transform: scale(1, 1);
+        }
       }
-
-      .loader span:nth-child(2) {
-        filter: blur(10px);
-      }
-
-      .loader span:nth-child(3) {
-        filter: blur(25px);
-      }
-
-      .loader span:nth-child(4) {
-        filter: blur(50px);
-      }
-
-      .loader:after {
-        content: "";
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        right: 10px;
-        bottom: 10px;
-        background: #191919;
-        border-radius: 50%;
-      }
+      
     </style>
     <script>
 
@@ -144,13 +105,15 @@
       });
     </script>
     <div class="main-content" id="loader-content">
-      <div class="loader">
+      <!-- <div class="loader">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
-      </div>
-      <img src="logo.png" alt="ffks">
+      </div> -->
+    <div class="imgcontent">
+      <img src="logo.png"></img>
+    </div>
 
     </div>
   </body>
