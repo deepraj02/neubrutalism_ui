@@ -7,7 +7,25 @@ sidebar_position: 1
 ## General Properties:
 
 - [x] `child`: The child widget inside of the button
-- [ ] `animationDuration` :(optional) : An Int. defining the Animation Duration in milliseconds.
+- [x] `buttonColor` (optional) : A Color that defines the color of the button. By default, it is set to neuDefault1 (black).
+- [x] `shadowColor`(optional) : A Color that defines the color of the button's shadow.By default, it is set to neuShadow
+- [x] `borderColor`   (optional) : A Color that defines the color of the button's border.By default, it is set to neuBlack.
+- [x] `onPressed`(optional) : A callback function that is called when the button is pressed.
+- [x] ` borderRadius`(optional) : A BorderRadiusGeometry that defines the border radius of the button.If not specified,  the 
+                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;button will have a circular border radius.
+- [x] `Offset`: An Offset that defines the amount and direction of the blur applied to the shadow of the card.
+- [x] `buttonHeight`(optional) : A double value that defines the height of the button.
+- [x] `buttonWidth`(optional) : A double value that defines the width of the button.
+- [x] `shadowBlurRadius`(optional) : A double that defines the radius of the blur applied to the shadow of the card.By default,
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; it is    set to neuShadowBlurRadius.
+- [x] `borderWidth`  (optional) : A double value that defines the width of the button's border.By default, it is set to neuBorder.
+  
+- [x] `enableAnimation` (required): Boolean property to toggle the animation property of the Button Widget. It creates 
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;smooth pressing animation beginning from  Offset(0,0) to the defined `offset` property.
+                                (Default offset value is (4,4)).
+
+
+- [x] `animationDuration` :(optional) : An Int. defining the Animation Duration in milliseconds.
 
 
 ## NeuTextButton Specific:

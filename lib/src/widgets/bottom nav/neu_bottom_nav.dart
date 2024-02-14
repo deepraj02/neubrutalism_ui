@@ -160,6 +160,5 @@ class _NeuBottomNavState extends State<NeuBottomNav> {
   }
 }
 
-
 //TODO:Add BottomNavItem Class for the bottom nav items
 //TODO: Navigation Mechanism like BottomNavBar
