@@ -8,7 +8,35 @@ class MobileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
+      /*floatingActionButton: FloatingActionButton(onPressed: () {
+        showDialog(
+          context: context,
+          builder: (context) {
+            return NeuDialog(
+                padding: EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    FlutterLogo(
+                      size: MediaQuery.of(context).size.height * .20,
+                    ),
+                    const SizedBox(height: 8.0),
+                    const Text("NeuDialog Example"),
+                    const SizedBox(height: 8.0),
+                    NeuTextButton(
+                      buttonColor: Colors.yellow,
+                      enableAnimation: true,
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      text: const Text("OK"),
+                    ),
+                  ],
+                ));
+          },
+        );
+      }),*/
       backgroundColor: Color(0xFFF0E4E4),
       body: Center(
         child: Column(

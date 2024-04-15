@@ -6,3 +6,5 @@ export 'containers/neu_search_bar.dart';
 export 'containers/neu_container.dart';
 
 export './bottom nav/neu_bottom_nav.dart';
+
+export 'dialog/neu_dialog.dart';

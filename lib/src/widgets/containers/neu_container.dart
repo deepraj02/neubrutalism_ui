@@ -33,6 +33,7 @@ class NeuContainer extends StatefulWidget {
     this.shadowBlurStyle = neuBlurStyle,
     this.child,
     this.borderRadius,
+    this.padding,
   }) : super(key: key);
 
   /// - offset (optional): An Offset that defines the position of the shadow of the container.
@@ -101,6 +102,12 @@ class NeuContainer extends StatefulWidget {
 
   final BorderRadiusGeometry? borderRadius;
 
+  /// - padding (optional): A EdgeInsetsGeometry that add inner padding to the container
+  ///
+  /// By default, it is set to null.
+
+  final EdgeInsetsGeometry? padding;
+
   @override
   State<NeuContainer> createState() => NeuContainerState();
 }
@@ -109,6 +116,7 @@ class NeuContainerState extends State<NeuContainer> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: widget.padding,
       width: widget.width,
       height: widget.height,
       decoration: BoxDecoration(
