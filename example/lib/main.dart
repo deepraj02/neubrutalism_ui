@@ -1,3 +1,4 @@
+import 'package:example/views/mobile_view.dart';
 import 'package:example/widgets/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -31,29 +32,6 @@ class SiteContent extends StatelessWidget {
   }
 }
 
-class MobileView extends StatelessWidget {
-  const MobileView({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Color(0xFFF0E4E4),
-      body: Center(
-        child: GradientText(
-          style: TextStyle(
-            fontSize: 50,
-            fontWeight: FontWeight.bold,
-          ),
-          text: 'NeuBrutalism',
-          gradient: LinearGradient(colors: [
-            Color.fromARGB(255, 212, 229, 115),
-            Color.fromARGB(255, 31, 42, 162),
-          ]),
-        ),
-      ),
-    );
-  }
-}
 
 class TabletView extends StatelessWidget {
   const TabletView({Key? key}) : super(key: key);
