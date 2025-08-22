@@ -1,7 +1,10 @@
 name: Publish Flutter Package
 
 on:
-  workflow_dispatch:
+  push:
+    tags:
+      - "*"
+
 jobs:
   publishing-package:
     runs-on: ubuntu-latest
