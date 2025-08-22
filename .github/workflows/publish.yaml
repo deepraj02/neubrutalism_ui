@@ -2,8 +2,8 @@ name: Publish Flutter Package
 
 on:
   push:
-    branches:
-      - master
+    tags:
+      - "*"
 
 jobs:
   publishing-package:
